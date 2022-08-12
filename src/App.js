@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { notifyError, notifySuccess } from './utils/funciones'
 import swal from "sweetalert2";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 import Login from "./components/Login";
 import Principal from './components/Principal';
 
 function App() {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 	const [estado, setEstado] = useState({
     username: '',
     password: ''
@@ -51,16 +51,11 @@ function App() {
   }
   return (
     <BrowserRouter>
-      <Route path="/inicio" exact key={"/inicio"}
-        render={
-          ({ match }) => (<Principal/> )} />
-      <Route path="/login" exact key={"/login"}
-				render={
-					({ match }) => (<Login key={window.location.pathname} /> )} />
-      <Route path="/" exact key={"/"}
-				render={
-					({ match }) => (window.location.href = '/inicio')} />
-		
+      <Routes>
+        <Route path="/Apolo-frontend/" element={<Principal />} />
+        <Route path="/Apolo-frontend/inicio" element={<Principal />} />
+        <Route path="/Apolo-frontend/login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 }
