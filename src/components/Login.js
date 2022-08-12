@@ -37,7 +37,7 @@ function Login({doLogin}) {
 
             <div className={'wrap-input100 validate-input" data-validate="La contraseña es requerida'}>
               <span className={'label-input100'}>Contraseña</span>
-              <input className={'input100'} type={'password'} name={'pass'} 
+              <input className={'input100'} type={'password'} name={'password'} 
               placeholder={'Escribe tu contraseña'} onChange={manejadorCambios}/>
               {/* <span className={'focus-input100'} data-symbol={'&#xf190'}></span> */}
             </div>
