@@ -51,7 +51,7 @@ function App() {
   }
   return (
     <BrowserRouter>
-      <Route path="/servicios" exact key={"/servicios"}
+      <Route path="/inicio" exact key={"/inicio"}
         render={
           ({ match }) => (<Principal/> )} />
       <Route path="/login" exact key={"/login"}

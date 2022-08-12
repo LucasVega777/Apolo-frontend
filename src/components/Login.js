@@ -30,14 +30,14 @@ function Login(login) {
 
             <div className={'wrap-input100 validate-input m-b-23'} data-validate ={'El usuario es requerido'}>
               <span className={'label-input100'}>Usuario</span>
-              <input className={'input100'} type={'text'} name={'username'} placeholder={'Escribe tu usuario'}/>
-              <span className={'focus-input100'} data-symbol={'&#xf206;'}></span>
+              <input className={'input100'} type={'text'} name={'username'} placeholder={'Escribe tu nombre de usuario'}/>
+              {/* <span className={'focus-input100'} data-symbol={'&#xf206;'}></span> */}
             </div>
 
             <div className={'wrap-input100 validate-input" data-validate="Password is required'}>
               <span className={'label-input100'}>Contraseña</span>
               <input className={'input100'} type={'password'} name={'pass'} placeholder={'Escribe tu contraseña'}/>
-              <span className={'focus-input100'} data-symbol={'&#xf190;'}></span>
+              {/* <span className={'focus-input100'} data-symbol={'&#xf190'}></span> */}
             </div>
             
             <div className={'text-right p-t-8 p-b-31'}>
