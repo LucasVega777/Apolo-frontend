@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import Principal from './components/Principal';
 
 function App() {
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
 	const [estado, setEstado] = useState({
     username: '',
     password: ''
@@ -16,6 +16,7 @@ function App() {
 
   const doLogin = async (data) =>{
     try {
+      console.log(data)
       const users = [
       {'username': 'lvega', 'password': 'lvega123'},
       {'username': 'egomez', 'password': 'egomez123'},
@@ -31,7 +32,7 @@ function App() {
 
       if(exito){
         setLogged(true);
-        window.hideSpin();
+        
       }else{
         notifyError('Usuario o contraseña incorrectos');
       }
@@ -47,14 +48,14 @@ function App() {
   useEffect(() => {}, [logged]);
 
   if (!logged) {
-    return <Login login={doLogin} />;
+    return <Login doLogin={doLogin} />;
   }
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/Apolo-frontend/" element={<Principal />} />
         <Route path="/Apolo-frontend/inicio" element={<Principal />} />
-        <Route path="/Apolo-frontend/login" element={<Login />} />
+        <Route path="/Apolo-frontend/login" element={<Login doLogin={doLogin}/>} />
       </Routes>
     </BrowserRouter>
   );
