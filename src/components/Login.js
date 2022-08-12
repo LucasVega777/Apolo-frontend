@@ -1,4 +1,24 @@
-function Login() {
+import React, { useState, useEffect } from 'react';
+
+function Login(login) {
+    const [ datosLogin, setDatosLogin ] = useState({
+        username: '',
+        password: ''
+    })
+
+    const manejadorCambios = (event) => {
+        setDatosLogin({
+            ...datosLogin, 
+            [event.target.name] : event.target.value 
+        });
+    }
+
+    const loggear = (event) => {
+        event.preventDefault();
+
+        window.showSpin();
+        login.doLogin(datosLogin);
+    }
   return (
     <div className={'limiter'}>
       <div className={'container-login100'} style={{'background-image' : 'url("images/bg-01.jpg")'}}>
@@ -8,15 +28,15 @@ function Login() {
               Login
             </span>
 
-            <div className={'wrap-input100 validate-input m-b-23'} data-validate ={'Username is reauired'}>
-              <span className={'label-input100'}>Username</span>
-              <input className={'input100'} type={'text'} name={'username'} placeholder={'Type your username'}/>
+            <div className={'wrap-input100 validate-input m-b-23'} data-validate ={'El usuario es requerido'}>
+              <span className={'label-input100'}>Usuario</span>
+              <input className={'input100'} type={'text'} name={'username'} placeholder={'Escribe tu usuario'}/>
               <span className={'focus-input100'} data-symbol={'&#xf206;'}></span>
             </div>
 
             <div className={'wrap-input100 validate-input" data-validate="Password is required'}>
-              <span className={'label-input100'}>Password</span>
-              <input className={'input100'} type={'password'} name={'pass'} placeholder={'Type your password'}/>
+              <span className={'label-input100'}>Contraseña</span>
+              <input className={'input100'} type={'password'} name={'pass'} placeholder={'Escribe tu contraseña'}/>
               <span className={'focus-input100'} data-symbol={'&#xf190;'}></span>
             </div>
             
