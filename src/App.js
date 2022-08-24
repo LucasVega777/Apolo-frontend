@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { notifyError, notifySuccess } from './utils/funciones'
 import swal from "sweetalert2";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 
 import Login from "./components/Login";
 import Principal from './components/Principal';
+import Usuarios from './components/Usuarios';
+import Roles from './components/Roles';
+import Permisos from './components/Roles';
+
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -16,7 +20,6 @@ function App() {
 
   const doLogin = async (data) =>{
     try {
-      console.log(data)
       const users = [
       {'username': 'lvega', 'password': 'lvega123'},
       {'username': 'egomez', 'password': 'egomez123'},
@@ -42,8 +45,8 @@ function App() {
   }
 
   const logout = async () => {
+    console.log("se ejecuta el logout")
 		setLogged(false);
-		window.location.href = '/';
 	}
   useEffect(() => {}, [logged]);
 
@@ -53,9 +56,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Apolo-frontend/" element={<Principal />} />
-        <Route path="/Apolo-frontend/inicio" element={<Principal />} />
-        <Route path="/Apolo-frontend/login" element={<Login doLogin={doLogin}/>} />
+        <Route path="/Apolo-frontend/inicio" element={<Principal logout={logout}/>}/>
+        <Route path="/Apolo-frontend/usuarios" element={<Usuarios logout={logout}/>}/>
+        <Route path="/Apolo-frontend/roles" element={<Roles logout={logout}/>}/>
+        <Route path="/Apolo-frontend/permisos" element={<Permisos logout={logout}/>}/>
+        <Route path="*" element={<Principal logout={logout}/>}/>
       </Routes>
     </BrowserRouter>
   );
