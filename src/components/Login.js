@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import backgroudLogin from '../images/bg-01.jpg'
 
 function Login({doLogin}) {
   const [ datosLogin, setDatosLogin ] = useState({
@@ -20,7 +21,7 @@ function Login({doLogin}) {
 
   return (
     <div className={'limiter'}>
-      <div className={'container-login100'} style={{'background-image' : 'url("images/bg-01.jpg")'}}>
+      <div className={'container-login100'} style={{'background-image' : `url(${backgroudLogin})`}}>
         <div className={'wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54'}>
           <form className={'login100-form validate-form'} onSubmit={loggear}>
             <span className={'login100-form-title p-b-49'}>

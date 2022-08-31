@@ -7,8 +7,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Principal from './components/Principal';
 import Usuarios from './components/Usuarios';
-import Roles from './components/Roles';
-import Permisos from './components/Roles';
+import CrearRol from './components/roles/CrearRol';
 
 
 function App() {
@@ -53,13 +52,13 @@ function App() {
   if (!logged) {
     return <Login doLogin={doLogin} />;
   }
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/Apolo-frontend/inicio" element={<Principal logout={logout}/>}/>
         <Route path="/Apolo-frontend/usuarios" element={<Usuarios logout={logout}/>}/>
-        <Route path="/Apolo-frontend/roles" element={<Roles logout={logout}/>}/>
-        <Route path="/Apolo-frontend/permisos" element={<Permisos logout={logout}/>}/>
+        <Route path="/Apolo-frontend/roles" element={<CrearRol/>}/>
         <Route path="*" element={<Principal logout={logout}/>}/>
       </Routes>
     </BrowserRouter>
