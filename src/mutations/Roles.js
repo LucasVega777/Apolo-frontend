@@ -21,9 +21,9 @@ export const CREAR_ROL = gql`
 export const EDITAR_ROL = gql`
     mutation UpdateRuleByIdRol($input: UpdateRuleByIdRolInput!) {
         updateRuleByIdRol(input: $input) {
-        rule {
-            descripcion
-        }
+            rule {
+                descripcion
+            }
         }
     }
 `
@@ -32,7 +32,7 @@ export const EDITAR_ROL = gql`
 export const ELIMINAR_ROL = gql`
     mutation DeleteRuleByIdRol($input: DeleteRuleByIdRolInput!) {
         deleteRuleByIdRol(input: $input) {
-        deletedRoleId  
+            deletedRoleId  
         }
     }
 `

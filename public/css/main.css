@@ -163,6 +163,14 @@ iframe {
   margin: 0 auto;
 }
 
+/*
+Pagina principal, después del login.
+*/
+.principal {
+  width: 100%;
+  margin: 100% auto;
+}
+
 .container-login100 {
   width: 100%;  
   min-height: 100vh;

@@ -7,8 +7,15 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Principal from './components/Principal';
 import Usuarios from './components/Usuarios';
-import CrearRol from './components/roles/CrearRol';
-
+import NavBar from './components/NavBar/Navbar';
+import SideBar from './components/SideBar/Sidebar';
+import FormularioPermiso from './components/Forms/FormInsertPermiso';
+import FormularioRol from './components/Forms/FormRolInsert';
+import RolTable from './components/Tables/RolTable';
+import FormularioUpdateRol from './components/Forms/FormUpdateRol';
+import FormularioDeleteRol from './components/Forms/FormDeleteRol';
+import FormularioUpdatePermiso from './components/Forms/FormUpdatePermiso';
+import FormularioDeletePermiso from './components/Forms/FormDeletePermiso';
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -55,12 +62,23 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/Apolo-frontend/inicio" element={<Principal logout={logout}/>}/>
-        <Route path="/Apolo-frontend/usuarios" element={<Usuarios logout={logout}/>}/>
-        <Route path="/Apolo-frontend/roles" element={<CrearRol/>}/>
-        <Route path="*" element={<Principal logout={logout}/>}/>
-      </Routes>
+        <NavBar/>
+        <>
+          <div className='flex'>
+            <SideBar/>
+            <div className='content'>
+              <Routes>
+                <Route path='Apolo-frontend/' exact={true} element={<Principal/>}/>
+                <Route path='Apolo-frontend/roles/insertar' exact={true} element={<FormularioRol/>}/>
+                <Route path='Apolo-frontend/roles/actualizar' exact={true} element={<FormularioUpdateRol/>}/>
+                <Route path='Apolo-frontend/roles/eliminar' exact={true} element={<FormularioDeleteRol/>}/>
+                <Route path='Apolo-frontend/permisos/insertar' exact={true} element={<FormularioPermiso/>}/>
+                <Route path='Apolo-frontend/permisos/actualizar' exact={true} element={<FormularioUpdatePermiso/>}/>
+                <Route path='Apolo-frontend/permisos/eliminar' exact={true} element={<FormularioDeletePermiso/>}/>
+              </Routes>
+            </div>
+          </div>
+        </>
     </BrowserRouter>
   );
 }

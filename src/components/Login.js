@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import backgroudLogin from '../images/bg-01.jpg'
+import backgroudLogin from '../images/gb-focos-2.jpg'
 
 function Login({doLogin}) {
   const [ datosLogin, setDatosLogin ] = useState({

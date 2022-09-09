@@ -20,10 +20,10 @@ export const GET_ROL_BY_ID = gql`
 export const GET_ALL_ROLES = gql`
     query AllRules {
         allRules {
-        nodes {
-            idRol
-            descripcion
-        }
+            nodes {
+                idRol
+                descripcion
+            }
         }
     }
 `
