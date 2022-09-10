@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
-import {CREAR_PERMISO} from '../../mutations/Permisos'
+import { ELIMINAR_PERMISO } from '../../../mutations/Permisos'
 
 
 
-const FormularioPermiso = () => {
+const FormularioDeletePermiso = () => {
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
-    const [crearPermiso, { data, loading, error}] = useMutation(CREAR_PERMISO)
+    const [deletePermiso, { data, loading, error}] = useMutation(ELIMINAR_PERMISO)
+
+    console.log(data)
 
     return (
         <>
             <Formik
                 initialValues={{
-                    descripcion: ""
+                    idPermiso: "",
                 }}
                 validate={(valores) => {
 
@@ -23,23 +25,23 @@ const FormularioPermiso = () => {
 
                     // En caso de que la descripcion sea nula o un string 
                     // vacio muestra el mensaje.
-                    if(!valores.descripcion || "") {
-                        errors.descripcion = "Por favor. Ingresa una descripción."
+                    if(!valores.idPermiso || "") {
+                        errors.descripcion = "Por favor ingrese los datos solicitados."
                         return errors
                     }
                 }}
                 onSubmit={(valores, {resetForm}) => {
 
-                    crearPermiso({
+                    deletePermiso({
                         variables: {
                             input: {
-                                permission: {
-                                    descripcion: valores.descripcion.toLocaleUpperCase()
-                                }
+                                idPermiso: +valores.idPermiso,
                             }
                         }
                     })
 
+                    console.log(data)
+                    
                     if(data) {
                         resetForm();
                         // Acá es donde hago la conexión a la api o sea, 
@@ -56,26 +58,26 @@ const FormularioPermiso = () => {
                     handleSubmit, values, handleChange, handleBlur, errors, touched
                 }) => (
                     <form className='formulario' onSubmit={handleSubmit}>
-                        <p className='etiqueta'>Crear un nuevo permiso</p>
+                        <p className='etiqueta'>Eliminar permiso</p>
                         <div>
                             <label 
-                                htmlFor='descripcion'
+                                htmlFor='idPermiso'
                             >
-                                Permiso
+                                Identificador del permiso
                             </label>
                             <input 
                                 type="text" 
-                                id="descripcion" 
-                                name="descripcion" 
-                                placeholder="CRUD" 
-                                value={values.descripcion}
+                                id="idPermiso" 
+                                name="idPermiso" 
+                                placeholder="1" 
+                                value={values.idPermiso}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.descripcion && errors.descripcion && <div className='error'> {errors.descripcion} </div>}
+                            {touched.idPermiso && errors.idPermiso && <div className='error'> {errors.idPermiso} </div>}
                         </div>
-                        <button type='submit'> Guardar </button>
-                        {formularioEnviado && <p className='exito'>Permiso creado con éxito.</p>}
+                        <button type='submit'> Eliminar permiso </button>
+                        {formularioEnviado && <p className='exito'>Permiso eliminado con éxito.</p>}
                     </form>
                 )} 
             </Formik>
@@ -84,4 +86,4 @@ const FormularioPermiso = () => {
 }
 
 
-export default FormularioPermiso;
+export default FormularioDeletePermiso;

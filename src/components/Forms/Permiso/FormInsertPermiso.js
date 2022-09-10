@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
-import { EDITAR_PERMISO } from '../../mutations/Permisos'
+import {CREAR_PERMISO} from '../../../mutations/Permisos'
 
 
 
-const FormularioUpdatePermiso = () => {
+const FormularioPermiso = () => {
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
-    const [updatePermiso, { data, loading, error}] = useMutation(EDITAR_PERMISO)
+    const [crearPermiso, { data, loading, error}] = useMutation(CREAR_PERMISO)
 
     return (
         <>
             <Formik
                 initialValues={{
-                    idPermiso: "",
                     descripcion: ""
                 }}
                 validate={(valores) => {
@@ -24,26 +23,23 @@ const FormularioUpdatePermiso = () => {
 
                     // En caso de que la descripcion sea nula o un string 
                     // vacio muestra el mensaje.
-                    if(!valores.descripcion || "" && !valores.idPermiso || "") {
-                        errors.descripcion = "Por favor ingrese los datos solicitados."
+                    if(!valores.descripcion || "") {
+                        errors.descripcion = "Por favor. Ingresa una descripción."
                         return errors
                     }
                 }}
                 onSubmit={(valores, {resetForm}) => {
 
-                    updatePermiso({
+                    crearPermiso({
                         variables: {
                             input: {
-                                idPermiso: +valores.idPermiso,
-                                permissionPatch: {
-                                  descripcion: valores.descripcion
+                                permission: {
+                                    descripcion: valores.descripcion.toLocaleUpperCase()
                                 }
-                              }
+                            }
                         }
                     })
 
-                    console.log(data)
-                    
                     if(data) {
                         resetForm();
                         // Acá es donde hago la conexión a la api o sea, 
@@ -60,24 +56,7 @@ const FormularioUpdatePermiso = () => {
                     handleSubmit, values, handleChange, handleBlur, errors, touched
                 }) => (
                     <form className='formulario' onSubmit={handleSubmit}>
-                        <p className='etiqueta'>Actualizar el permiso</p>
-                        <div>
-                            <label 
-                                htmlFor='idPermiso'
-                            >
-                                Identificador del permiso
-                            </label>
-                            <input 
-                                type="text" 
-                                id="idPermiso" 
-                                name="idPermiso" 
-                                placeholder="1" 
-                                value={values.idPermiso}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                            {touched.idPermiso && errors.idPermiso && <div className='error'> {errors.idPermiso} </div>}
-                        </div>
+                        <p className='etiqueta'>Crear un nuevo permiso</p>
                         <div>
                             <label 
                                 htmlFor='descripcion'
@@ -95,8 +74,8 @@ const FormularioUpdatePermiso = () => {
                             />
                             {touched.descripcion && errors.descripcion && <div className='error'> {errors.descripcion} </div>}
                         </div>
-                        <button type='submit'> Actualizar permiso </button>
-                        {formularioEnviado && <p className='exito'>permiso actualizado con éxito.</p>}
+                        <button type='submit'> Guardar </button>
+                        {formularioEnviado && <p className='exito'>Permiso creado con éxito.</p>}
                     </form>
                 )} 
             </Formik>
@@ -105,4 +84,4 @@ const FormularioUpdatePermiso = () => {
 }
 
 
-export default FormularioUpdatePermiso;
+export default FormularioPermiso;

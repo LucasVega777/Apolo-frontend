@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
-import {ELIMINAR_ROL} from '../../mutations/Roles'
+import {CREAR_ROL} from '../../../mutations/Roles'
 
 
 
-const FormularioDeleteRol = () => {
+const FormularioRol = () => {
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
-    const [deleteRol, { data, loading, error}] = useMutation(ELIMINAR_ROL)
-
-    console.log(data)
+    const [crearRol, { data, loading, error}] = useMutation(CREAR_ROL)
 
     return (
         <>
             <Formik
                 initialValues={{
-                    idRol: "",
                     descripcion: ""
                 }}
                 validate={(valores) => {
@@ -26,23 +23,23 @@ const FormularioDeleteRol = () => {
 
                     // En caso de que la descripcion sea nula o un string 
                     // vacio muestra el mensaje.
-                    if(!valores.idRol || "") {
-                        errors.descripcion = "Por favor ingrese los datos solicitados."
+                    if(!valores.descripcion || "") {
+                        errors.descripcion = "Por favor. Ingresa un rol."
                         return errors
                     }
                 }}
                 onSubmit={(valores, {resetForm}) => {
 
-                    deleteRol({
+                    crearRol({
                         variables: {
                             input: {
-                                idRol: +valores.idRol,
+                                rule: {
+                                    descripcion: valores.descripcion.toLocaleUpperCase()
+                                }
                             }
                         }
                     })
 
-                    console.log(data)
-                    
                     if(data) {
                         resetForm();
                         // Acá es donde hago la conexión a la api o sea, 
@@ -59,26 +56,26 @@ const FormularioDeleteRol = () => {
                     handleSubmit, values, handleChange, handleBlur, errors, touched
                 }) => (
                     <form className='formulario' onSubmit={handleSubmit}>
-                        <p className='etiqueta'>Eliminar rol</p>
+                        <p className='etiqueta'>Crear un nuevo rol</p>
                         <div>
                             <label 
-                                htmlFor='idRol'
+                                htmlFor='descripcion'
                             >
-                                Identificador del rol
+                                Rol
                             </label>
                             <input 
                                 type="text" 
-                                id="idRol" 
-                                name="idRol" 
-                                placeholder="1" 
-                                value={values.idRol}
+                                id="descripcion" 
+                                name="descripcion" 
+                                placeholder="Developer" 
+                                value={values.descripcion}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.idRol && errors.idRol && <div className='error'> {errors.idRol} </div>}
+                            {touched.descripcion && errors.descripcion && <div className='error'> {errors.descripcion} </div>}
                         </div>
-                        <button type='submit'> Eliminar rol </button>
-                        {formularioEnviado && <p className='exito'>Rol eliminado con éxito.</p>}
+                        <button type='submit'> Guardar </button>
+                        {formularioEnviado && <p className='exito'>Rol creado con éxito.</p>}
                     </form>
                 )} 
             </Formik>
@@ -87,4 +84,4 @@ const FormularioDeleteRol = () => {
 }
 
 
-export default FormularioDeleteRol;
+export default FormularioRol;

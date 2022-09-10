@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import FormularioPermiso from './Forms/FormInsertPermiso';
-import FormularioRol from './Forms/FormRolInsert';
-import NavBar from './NavBar/Navbar';
 
 
 function Principal(props) {

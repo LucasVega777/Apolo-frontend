@@ -9,13 +9,12 @@ import Principal from './components/Principal';
 import Usuarios from './components/Usuarios';
 import NavBar from './components/NavBar/Navbar';
 import SideBar from './components/SideBar/Sidebar';
-import FormularioPermiso from './components/Forms/FormInsertPermiso';
-import FormularioRol from './components/Forms/FormRolInsert';
-import RolTable from './components/Tables/RolTable';
-import FormularioUpdateRol from './components/Forms/FormUpdateRol';
-import FormularioDeleteRol from './components/Forms/FormDeleteRol';
-import FormularioUpdatePermiso from './components/Forms/FormUpdatePermiso';
-import FormularioDeletePermiso from './components/Forms/FormDeletePermiso';
+import FormularioPermiso from './components/Forms/Permiso/FormInsertPermiso';
+import FormularioRol from './components/Forms/Rol/FormRolInsert';
+import FormularioUpdateRol from './components/Forms/Rol/FormUpdateRol';
+import FormularioDeleteRol from './components/Forms/Rol/FormDeleteRol';
+import FormularioUpdatePermiso from './components/Forms/Permiso/FormUpdatePermiso';
+import FormularioDeletePermiso from './components/Forms/Permiso/FormDeletePermiso';
 
 function App() {
   const [logged, setLogged] = useState(false);

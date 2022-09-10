@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
-import {EDITAR_ROL} from '../../mutations/Roles'
+import { EDITAR_PERMISO } from '../../../mutations/Permisos'
 
 
 
-const FormularioUpdateRol = () => {
+const FormularioUpdatePermiso = () => {
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
-    const [updateRol, { data, loading, error}] = useMutation(EDITAR_ROL)
+    const [updatePermiso, { data, loading, error}] = useMutation(EDITAR_PERMISO)
 
     return (
         <>
             <Formik
                 initialValues={{
-                    idRol: "",
+                    idPermiso: "",
                     descripcion: ""
                 }}
                 validate={(valores) => {
@@ -24,18 +24,18 @@ const FormularioUpdateRol = () => {
 
                     // En caso de que la descripcion sea nula o un string 
                     // vacio muestra el mensaje.
-                    if(!valores.descripcion || "" && !valores.idRol || "") {
+                    if(!valores.descripcion || "" && !valores.idPermiso || "") {
                         errors.descripcion = "Por favor ingrese los datos solicitados."
                         return errors
                     }
                 }}
                 onSubmit={(valores, {resetForm}) => {
 
-                    updateRol({
+                    updatePermiso({
                         variables: {
                             input: {
-                                idRol: +valores.idRol,
-                                rulePatch: {
+                                idPermiso: +valores.idPermiso,
+                                permissionPatch: {
                                   descripcion: valores.descripcion
                                 }
                               }
@@ -60,43 +60,43 @@ const FormularioUpdateRol = () => {
                     handleSubmit, values, handleChange, handleBlur, errors, touched
                 }) => (
                     <form className='formulario' onSubmit={handleSubmit}>
-                        <p className='etiqueta'>Actualizar el rol</p>
+                        <p className='etiqueta'>Actualizar el permiso</p>
                         <div>
                             <label 
-                                htmlFor='idRol'
+                                htmlFor='idPermiso'
                             >
-                                identificador del rol
+                                Identificador del permiso
                             </label>
                             <input 
                                 type="text" 
-                                id="idRol" 
-                                name="idRol" 
+                                id="idPermiso" 
+                                name="idPermiso" 
                                 placeholder="1" 
-                                value={values.idRol}
+                                value={values.idPermiso}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {touched.idRol && errors.idRol && <div className='error'> {errors.idRol} </div>}
+                            {touched.idPermiso && errors.idPermiso && <div className='error'> {errors.idPermiso} </div>}
                         </div>
                         <div>
                             <label 
                                 htmlFor='descripcion'
                             >
-                                Rol
+                                Permiso
                             </label>
                             <input 
                                 type="text" 
                                 id="descripcion" 
                                 name="descripcion" 
-                                placeholder="Developer" 
+                                placeholder="CRUD" 
                                 value={values.descripcion}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
                             {touched.descripcion && errors.descripcion && <div className='error'> {errors.descripcion} </div>}
                         </div>
-                        <button type='submit'> Actualizar rol </button>
-                        {formularioEnviado && <p className='exito'>Rol actualizado con éxito.</p>}
+                        <button type='submit'> Actualizar permiso </button>
+                        {formularioEnviado && <p className='exito'>permiso actualizado con éxito.</p>}
                     </form>
                 )} 
             </Formik>
@@ -105,4 +105,4 @@ const FormularioUpdateRol = () => {
 }
 
 
-export default FormularioUpdateRol;
+export default FormularioUpdatePermiso;
