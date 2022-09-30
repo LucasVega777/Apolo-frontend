@@ -38,7 +38,17 @@ const SideBar = () => {
                     <Link to="Apolo-frontend/permisos/eliminar">
                         Eliminar Permisos
                     </Link>
-                </li>                                                
+                </li>          
+                <li className="li">
+                    <Link to="Apolo-frontend/proyectos">
+                        Ver proyectos
+                    </Link>
+                </li>     
+                <li className="li">
+                    <Link to="Apolo-frontend/usuarios">
+                        Usuarios
+                    </Link>
+                </li>                                           
             </ul>
         </div>
     )

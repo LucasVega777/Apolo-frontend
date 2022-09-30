@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import Login from "./components/Login";
 import Principal from './components/Principal';
-import Usuarios from './components/Usuarios';
+import Usuarios from './components/datatables/Usuarios';
 import NavBar from './components/NavBar/Navbar';
 import SideBar from './components/SideBar/Sidebar';
 import FormularioPermiso from './components/Forms/Permiso/FormInsertPermiso';
@@ -15,6 +15,8 @@ import FormularioUpdateRol from './components/Forms/Rol/FormUpdateRol';
 import FormularioDeleteRol from './components/Forms/Rol/FormDeleteRol';
 import FormularioUpdatePermiso from './components/Forms/Permiso/FormUpdatePermiso';
 import FormularioDeletePermiso from './components/Forms/Permiso/FormDeletePermiso';
+
+import Proyectos from './components/datatables/Proyectos';
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -74,6 +76,8 @@ function App() {
                 <Route path='Apolo-frontend/permisos/insertar' exact={true} element={<FormularioPermiso/>}/>
                 <Route path='Apolo-frontend/permisos/actualizar' exact={true} element={<FormularioUpdatePermiso/>}/>
                 <Route path='Apolo-frontend/permisos/eliminar' exact={true} element={<FormularioDeletePermiso/>}/>
+                <Route path='Apolo-frontend/proyectos' exact={true} element={<Proyectos/>}/>
+                <Route path='Apolo-frontend/usuarios' exact={true} element={<Usuarios/>}/>
               </Routes>
             </div>
           </div>
