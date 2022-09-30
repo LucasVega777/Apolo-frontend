@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-function Proyectos({logout}) {
-  const [estado, setEstado] = useState(true);
-  const doLogout = () => {
-    setEstado(true);
-    logout();
-  }
-
-  useEffect(() => {}, [estado]);
-
+function Roles() {
   return (
     <section class="p-t-20">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">data table</h3>
+                    <h3 class="title-5 m-b-35">Roles</h3>
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
                             <div class="rs-select2--light rs-select2--md">
@@ -37,7 +29,7 @@ function Proyectos({logout}) {
                                 <i class="zmdi zmdi-filter-list"></i>filters</button>
                         </div>
                         <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" href="Apolo-frontend/roles/insertar">
                                 <i class="zmdi zmdi-plus"></i>add item</button>
                             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
@@ -174,40 +166,7 @@ function Proyectos({logout}) {
                                     </td>
                                 </tr>
                                 <tr class="spacer"></tr>
-                                <tr class="tr-shadow">
-                                    <td>
-                                        <label class="au-checkbox">
-                                            <input type="checkbox"/>
-                                            <span class="au-checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td>Lori Lynch</td>
-                                    <td>
-                                        <span class="block-email">doe@example.com</span>
-                                    </td>
-                                    <td class="desc">Camera C430W 4k</td>
-                                    <td>2018-09-24 19:10</td>
-                                    <td>
-                                        <span class="status--process">Processed</span>
-                                    </td>
-                                    <td>$699.00</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+            
                             </tbody>
                         </table>
                     </div>
@@ -218,5 +177,5 @@ function Proyectos({logout}) {
   );
   }
   
-  export default Proyectos;
+  export default Roles;
   

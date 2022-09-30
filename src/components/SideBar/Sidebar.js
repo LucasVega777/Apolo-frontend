@@ -40,15 +40,20 @@ const SideBar = () => {
                     </Link>
                 </li>          
                 <li className="li">
-                    <Link to="Apolo-frontend/proyectos">
-                        Ver proyectos
+                    <Link to="Apolo-frontend/roles">
+                        Ver roles
                     </Link>
                 </li>     
                 <li className="li">
                     <Link to="Apolo-frontend/usuarios">
                         Usuarios
                     </Link>
-                </li>                                           
+                </li>         
+                <li className="li">
+                    <Link to="Apolo-frontend/">
+                        Cerrar Sesion
+                    </Link>
+                </li>                                       
             </ul>
         </div>
     )
