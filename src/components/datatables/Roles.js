@@ -29,8 +29,8 @@ function Roles() {
                                 <i class="zmdi zmdi-filter-list"></i>filters</button>
                         </div>
                         <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" href="Apolo-frontend/roles/insertar">
-                                <i class="zmdi zmdi-plus"></i>add item</button>
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" href="/Apolo-frontend/roles/insertar">
+                                <i class="zmdi zmdi-plus"></i>Nuevo Rol</button>
                             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
@@ -51,12 +51,8 @@ function Roles() {
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </th>
-                                    <th>name</th>
-                                    <th>email</th>
-                                    <th>description</th>
-                                    <th>date</th>
-                                    <th>status</th>
-                                    <th>price</th>
+                                    <th>id</th>
+                                    <th>nombre</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -68,21 +64,13 @@ function Roles() {
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </td>
-                                    <td>Lori Lynch</td>
+                                    <td>1</td>
                                     <td>
-                                        <span class="block-email">lori@example.com</span>
+                                        Admin
                                     </td>
-                                    <td class="desc">Samsung S8 Black</td>
-                                    <td>2018-09-27 02:12</td>
-                                    <td>
-                                        <span class="status--process">Processed</span>
-                                    </td>
-                                    <td>$679.00</td>
+                                    
                                     <td>
                                         <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
-                                            </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
@@ -103,21 +91,13 @@ function Roles() {
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </td>
-                                    <td>Lori Lynch</td>
+                                    <td>1</td>
                                     <td>
-                                        <span class="block-email">john@example.com</span>
+                                       Desarrollador
                                     </td>
-                                    <td class="desc">iPhone X 64Gb Grey</td>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>
-                                        <span class="status--process">Processed</span>
-                                    </td>
-                                    <td>$999.00</td>
+                                    
                                     <td>
                                         <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
-                                            </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
@@ -138,21 +118,13 @@ function Roles() {
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </td>
-                                    <td>Lori Lynch</td>
+                                    <td>1</td>
                                     <td>
-                                        <span class="block-email">lyn@example.com</span>
+                                        Usuario
                                     </td>
-                                    <td class="desc">iPhone X 256Gb Black</td>
-                                    <td>2018-09-25 19:03</td>
-                                    <td>
-                                        <span class="status--denied">Denied</span>
-                                    </td>
-                                    <td>$1199.00</td>
+                                    
                                     <td>
                                         <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
-                                            </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
@@ -166,7 +138,6 @@ function Roles() {
                                     </td>
                                 </tr>
                                 <tr class="spacer"></tr>
-            
                             </tbody>
                         </table>
                     </div>
