@@ -48,7 +48,12 @@ const SideBar = () => {
                     <Link to="Apolo-frontend/usuarios">
                         Usuarios
                     </Link>
-                </li>         
+                </li>
+                <li className="li">
+                    <Link to="Apolo-frontend/proyectos">
+                        Proyectos
+                    </Link>
+                </li>
                 <li className="li">
                     <Link to="Apolo-frontend/">
                         Cerrar Sesion
