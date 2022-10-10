@@ -17,6 +17,7 @@ import FormularioUpdatePermiso from './components/Forms/Permiso/FormUpdatePermis
 import FormularioDeletePermiso from './components/Forms/Permiso/FormDeletePermiso';
 
 import Roles from './components/datatables/Roles';
+import Proyectos from './components/Proyectos';
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -78,6 +79,7 @@ function App() {
                 <Route path='Apolo-frontend/permisos/eliminar' exact={true} element={<FormularioDeletePermiso/>}/>
                 <Route path='Apolo-frontend/roles' exact={true} element={<Roles/>}/>
                 <Route path='Apolo-frontend/usuarios' exact={true} element={<Usuarios/>}/>
+                <Route path='Apolo-frontend/proyectos' exact={true} element={<Proyectos/>}/>
               </Routes>
             </div>
           </div>

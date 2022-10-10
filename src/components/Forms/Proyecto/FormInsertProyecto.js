@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Formik } from "formik";
-import { CREAR_PERMISO } from "../../../mutations/Permisos";
+import { CREAR_PROYECTO } from "../../../mutations/Proyectos";
 
-const FormularioPermiso = () => {
+const FormularioInsertProyecto = () => {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
-    const [crearPermiso, { data, loading, error }] = useMutation(CREAR_PERMISO);
+    const [crearProyecto, { data, loading, error }] =
+        useMutation(CREAR_PROYECTO);
 
     return (
         <>
@@ -16,27 +17,29 @@ const FormularioPermiso = () => {
                 }}
                 validate={(valores) => {
                     let errors = {};
-
                     // En caso de que la descripcion sea nula o un string
                     // vacio muestra el mensaje.
                     if (!valores.descripcion || "") {
-                        errors.descripcion =
-                            "Por favor. Ingresa una descripción.";
+                        errors.descripcion = "Por favor. Ingresa un nombre.";
                         return errors;
                     }
                 }}
                 onSubmit={(valores, { resetForm }) => {
-                    crearPermiso({
+                    crearProyecto({
                         variables: {
                             input: {
-                                permission: {
-                                    descripcion:
-                                        valores.descripcion.toLocaleUpperCase(),
+                                project: {
+                                    idProyecto: Math.floor(
+                                        Math.random() * (1000 - 0)
+                                    ),
+                                    descripcion: valores.descripcion,
+                                    fechaInicio: valores.fechaInicio,
+                                    fechaFin: valores.fechaFin,
                                 },
                             },
                         },
                     });
-
+                    console.log(data);
                     if (data) {
                         resetForm();
                         // Acá es donde hago la conexión a la api o sea,
@@ -64,7 +67,7 @@ const FormularioPermiso = () => {
                                 type="text"
                                 id="descripcion"
                                 name="descripcion"
-                                placeholder="CRUD"
+                                placeholder="Nombre del proyecto"
                                 value={values.descripcion}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -75,10 +78,24 @@ const FormularioPermiso = () => {
                                     {errors.descripcion}{" "}
                                 </div>
                             )}
+                            <input
+                                type="date"
+                                name="fechaInicio"
+                                id="fechaInicio"
+                                value={values.fechaInicio}
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="date"
+                                name="fechaFin"
+                                id="fechaFin"
+                                value={values.fechaFin}
+                                onChange={handleChange}
+                            />
                         </div>
                         <button type="submit"> Guardar </button>
                         {formularioEnviado && (
-                            <p className="exito">Permiso creado con éxito.</p>
+                            <p className="exito">Proyecto creado con éxito.</p>
                         )}
                     </form>
                 )}
@@ -87,4 +104,4 @@ const FormularioPermiso = () => {
     );
 };
 
-export default FormularioPermiso;
+export default FormularioInsertProyecto;
