@@ -20,49 +20,39 @@ function Login({doLogin}) {
   }
 
   return (
-    <div className={'limiter'}>
-      <div className={'container-login100'} style={{'background-image' : `url(${backgroudLogin})`}}>
-        <div className={'wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54'}>
-          <form className={'login100-form validate-form'} onSubmit={loggear}>
-            <span className={'login100-form-title p-b-49'}>
-              Iniciar Sesión
-            </span>
-
-            <div className={'wrap-input100 validate-input m-b-23'} data-validate ={'El usuario es requerido'}>
-              <span className={'label-input100'}>Usuario</span>
-              <input className={'input100'} type={'text'} name={'username'} 
-              placeholder={'Escribe tu nombre de usuario'} onChange={manejadorCambios}/>
+    <div className={"page-wrapper"}>
+        <div className={"page-content--bge5"}>
+            <div className={"container"}>
+                <div className={"login-wrap"}>
+                    <div className={"login-content"}>
+                        
+                        <div className="login-form">
+                            <form onSubmit={loggear}>
+                                <div className={"form-group"}>
+                                    <label>Username</label>
+                                    <input className={"au-input au-input--full"} type={"text"} name={"username"} placeholder={"Username"} onChange={manejadorCambios}/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input className={"au-input au-input--full"} type={"password"} name={"password"} placeholder={"Password"} onChange={manejadorCambios}/>
+                                </div>
+                               
+                                <button className={"au-btn au-btn--block au-btn--green m-b-20"} type={"submit"} href={'/Apolo-frontend/inicio'}>Iniciar Sesion</button>
+                               
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div className={'wrap-input100 validate-input" data-validate="La contraseña es requerida'}>
-              <span className={'label-input100'}>Contraseña</span>
-              <input className={'input100'} type={'password'} name={'password'} 
-              placeholder={'Escribe tu contraseña'} onChange={manejadorCambios}/>
-            </div>
-            
-            <div className={'text-right p-t-8 p-b-31'}>
-              
-            </div>
-            
-
-            <div className={'container-login100-form-btn'}>
-              <div className={'wrap-login100-form-btn'}>
-                <div className={'login100-form-bgbtn'}></div>
-                <button className={'login100-form-btn'} type={'submit'} href={'/Apolo-frontend/inicio'}>
-                  Ingresar 
-                </button>
-              </div>
-            </div>
-
-            <div className={'txt1 text-center p-t-54 p-b-20'}>
-            
-            </div>
-
-          </form>
         </div>
-      </div>
+
     </div>
+
   );
+
+
+
 }
 
 export default Login;
