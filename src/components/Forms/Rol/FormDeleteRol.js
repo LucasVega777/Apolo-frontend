@@ -95,14 +95,14 @@ const FormularioDeleteRol = () => {
                             >
                                 Identificador del rol
                             </label>
-                            <Field
+                            {/* <Field
                                 as="select" name="Rol"
                             >
                                 {/* <option value="" disabled >Seleccione un rol.</option> */}
                                     {/* {todosLosRoles.map((x, i) => {
                                         return <option key={i} value={x.value}>{x.label}</option>
                                     })} */}
-                            </Field>
+                            </Field> */}
                             <input 
                                 type="text" 
                                 id="idRol" 
