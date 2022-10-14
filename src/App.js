@@ -65,7 +65,7 @@ function App() {
   return (
     <BrowserRouter>
         <NavBar/>
-        <>
+        
           <div className='flex'>
             <SideBar/>
             <div className='content'>
@@ -83,7 +83,7 @@ function App() {
               </Routes>
             </div>
           </div>
-        </>
+        
     </BrowserRouter>
   );
 }
