@@ -1,11 +1,40 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { Formik } from 'formik';
+import { useMutation, useQuery } from '@apollo/client';
+import { Field, Formik } from 'formik';
 import {ELIMINAR_ROL} from '../../../mutations/Roles'
-
+import { GET_ALL_ROLES } from '../../../queries/Roles';
 
 
 const FormularioDeleteRol = () => {
+
+    const roles = useQuery(
+        GET_ALL_ROLES
+    )
+
+
+    let datoRol
+    let todosLosRoles = []
+    if(roles) {
+
+        const { data, loading, error} = roles
+
+        // Obtiene los datos del query
+        const all = data.allRules.edges
+        // Verifica la longitud del array
+        if(data.allRules.edges.length > 0) {
+            todosLosRoles = data.allRules.edges.map(
+                regla => {
+                    return {
+                        value: regla._id,
+                        label: regla.descripcion
+                    }
+                }
+            )
+        }
+        else {
+            todosLosRoles = []
+        }
+    }
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
@@ -66,6 +95,14 @@ const FormularioDeleteRol = () => {
                             >
                                 Identificador del rol
                             </label>
+                            <Field
+                                as="select" name="Rol"
+                            >
+                                {/* <option value="" disabled >Seleccione un rol.</option> */}
+                                    {/* {todosLosRoles.map((x, i) => {
+                                        return <option key={i} value={x.value}>{x.label}</option>
+                                    })} */}
+                            </Field>
                             <input 
                                 type="text" 
                                 id="idRol" 

@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
 import {CREAR_ROL} from '../../../mutations/Roles'
+import { Link } from 'react-router-dom';
 
 
 
 const FormularioRol = () => {
 
+    const [crearRol, { data, loading, error}] = useMutation(CREAR_ROL)
+    
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
 
-    const [crearRol, { data, loading, error}] = useMutation(CREAR_ROL)
+    console.log(formularioEnviado)
+    
 
     return (
         <>
@@ -19,6 +23,7 @@ const FormularioRol = () => {
                 }}
                 validate={(valores) => {
 
+                    console.log(valores)
                     let errors = {}
 
                     // En caso de que la descripcion sea nula o un string 
@@ -40,6 +45,7 @@ const FormularioRol = () => {
                         }
                     })
 
+                    console.log(data)
                     if(data) {
                         resetForm();
                         // Acá es donde hago la conexión a la api o sea, 
@@ -47,7 +53,7 @@ const FormularioRol = () => {
                         console.log(valores)
                         console.log("OK")
                         cambiarFormularioEnviado(true)
-                        setTimeout( () => cambiarFormularioEnviado(false), 3000)
+                        setTimeout( () => cambiarFormularioEnviado(false), 1000)
                     }
                 
                 }}
@@ -75,7 +81,12 @@ const FormularioRol = () => {
                             {touched.descripcion && errors.descripcion && <div className='error'> {errors.descripcion} </div>}
                         </div>
                         <button type='submit'> Guardar </button>
-                        {formularioEnviado && <p className='exito'>Rol creado con éxito.</p>}
+                        <Link to={'/Apolo-frontend/roles'} class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small"
+                            > Volver al listado
+                            </button>
+                        </Link>
+                        {/* {formularioEnviado && <p className='exito'>Rol creado con éxito.</p>} */}
                     </form>
                 )} 
             </Formik>
