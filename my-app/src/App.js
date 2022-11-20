@@ -1,17 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import {Switch} from 'react-router-dom';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Proyecto from "./proyecto/Proyecto";
+import PageNotFound from "./pagenotfound";
+
 function App() {
-  return (
-   <> 
-    <Switch>
-      <Route exact path="/" component={}/>
-      <Route exact path="/info" component={}/>
-      <Route exact path="/contacto" component={}/>
-      <Route component={PageNotFound}/>
-    </Switch>   
-   </>
-  );
+    //Render Proyecto component when path is '/proyecto'
+    return (
+        <Router>
+            <Routes>
+                <Route path="/proyecto" element={<Proyecto />} />
+                <Route path="*" element={<PageNotFound />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
