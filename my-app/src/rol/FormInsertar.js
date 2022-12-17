@@ -6,7 +6,7 @@ import { CREATE_ROL } from '../graphql/queries'
 const InsertarRol = () => {
 
     const insertar = (nombreRol) => {
-        const [crearRol, { data, loading, error}] = useMutation(CREAR_ROL)
+        const [crearRol, { data, loading, error}] = useMutation(CREATE_ROL)
 
         if(!nombreRol) {
             throw new Error("El nombre del rol es requerido.")

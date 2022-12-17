@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ProSidebarProvider } from 'react-pro-sidebar';
 
 
 const urlHeroku = "https://hadesbackend.herokuapp.com/"
@@ -17,9 +18,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <ProSidebarProvider>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </ProSidebarProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
