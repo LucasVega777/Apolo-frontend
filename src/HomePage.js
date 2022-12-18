@@ -5,10 +5,10 @@ import Footer from "./componentes/footer";
 import Palabras from "./Palabras";
 import axios from 'axios';
 import usuariopng from './usuario.png'
+import Header from './componentes/header'
+
 
 function HomePage() {
-  const [menu, setMenu] = useState('mobile-nav-show');
-  const [x, setX] = useState('mobile-nav-hide d-none');
   const [terminoBusqueda, setTerminoBusqueda] = useState('');
   const [datos, setDatos] = useState([]);
 
@@ -30,18 +30,11 @@ function HomePage() {
   useEffect(() => {}, [datos]);
   return (
       <div>
-        <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
-          <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
-
-            <a href={'https://lucasvega777.github.io/frontendAprendeLDS/'} className={'logo d-flex align-items-center'}>
-              <h1>IS2</h1>
-            </a>
-
-          </div>
-        </header>
-
-        <h1> Pagina principal  </h1>
-        <Footer/>
+        <Header/>
+        <section id={'hero'} className={'hero d-flex align-items-center'}></section>
+        <div className={'container'}>
+          <h1> Pagina principal  </h1>
+        </div>    
       </div>
   );
 }

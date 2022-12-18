@@ -44,8 +44,8 @@ function Login() {
 
   useEffect(() => {}, [loggeado]);
   
-  if(!loggeado){
-    return (
+  
+  return (
       <div>
         <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
           <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
@@ -92,11 +92,6 @@ function Login() {
         <Footer/>
       </div>
   );
-
-  } else {
-    <HomePage></HomePage>
-  }
-  
   
 }
 
