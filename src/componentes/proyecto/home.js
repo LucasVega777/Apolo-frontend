@@ -18,13 +18,34 @@ function Proyectos(props) {
      */
     const { loading, error, data } = useQuery(GET_ALL_PROYECTOS);
     const [deleteProyecto] = useMutation(ELIMINAR_PROYECTO);
+    /**
+     * State para guardar los proyectos y el detalle de un proyecto
+     */
     const [proyectos, setProyectos] = useState([]);
     const [detalle, setDetalle] = useState(false);
+    const [formulario, setFormulario] = useState({
+        mode: "create",
+    });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error.message}</p>;
     if (data.allProjects.nodes && proyectos.length === 0)
         setProyectos(data.allProjects.nodes);
+
+    /**
+     * Metodo para manejar la edicion de un proyecto
+     * @param {*} idProyecto
+     */
+    const handleEdit = (datosProyecto) => {
+        console.log(datosProyecto);
+        setFormulario({
+            mode: "edit",
+            idProyecto: datosProyecto.idProyecto,
+            descripcion: datosProyecto.descripcion,
+            fechaInicio: datosProyecto.fechaInicio,
+            fechaFin: datosProyecto.fechaFin,
+        });
+    };
 
     /**
      * Metodo para mostrar el detalle de un proyecto
@@ -79,6 +100,7 @@ function Proyectos(props) {
                                 fechaFin={proyecto.fechaFin}
                                 onDelete={handleDelete}
                                 onVer={handleDetalle}
+                                onEdit={handleEdit}
                             />
                         </tr>
                     ))}
@@ -89,7 +111,17 @@ function Proyectos(props) {
                 <DetalleProyecto idProyecto={detalle.idProyecto} />
             ) : null}
             <h2> Crear/Editar proyecto</h2>
-            <ProyectoForm />
+            {formulario.mode === "create" ? (
+                <ProyectoForm mode={formulario.mode} />
+            ) : (
+                <ProyectoForm
+                    mode={formulario.mode}
+                    idProyecto={formulario.idProyecto}
+                    descripcion={formulario.descripcion}
+                    fechaInicio={formulario.fechaInicio}
+                    fechaFin={formulario.fechaFin}
+                />
+            )}
         </>
     );
 }
