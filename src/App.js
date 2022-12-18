@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from './login'
 import Header from "./componentes/header";
-
+import TablaRol from "./componentes/Rol";
 
 
 
@@ -17,7 +17,7 @@ function App() {
             <Route path="/usuarios" exact key={"/usuarios"} 
               element={<Usuarios/>}/>
             <Route path="/roles" exact key={"/roles"} 
-              element={<Roles/>}/>
+              element={<TablaRol/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
         </Routes>
