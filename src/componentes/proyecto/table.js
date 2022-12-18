@@ -34,7 +34,9 @@ class Proyecto extends React.Component {
                     } >Eliminar</button>
                 </td>
                 <td>
-                    <button>Ver</button>
+                    <button onClick={
+                        () => this.props.onVer(this.state.idProyecto)
+                    }>Ver</button>
                 </td>
             </>
         );
