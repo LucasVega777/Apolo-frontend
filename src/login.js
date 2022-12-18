@@ -4,6 +4,8 @@ import axios from 'axios';
 import usuariopng from './usuario.png'
 import HomePage from "./HomePage";
 import { useNavigate } from 'react-router-dom';
+import { notifyError } from "./utils/funciones";
+import {ToastContainer} from 'react-toastify'
 
 
 function Login() {
@@ -36,17 +38,26 @@ function Login() {
 
   
   const busqueda = async() => {
-    if(username == 'lvega' && password =='lvega123'){
-      setLoggeado(true)
-      navigate('/')
+    try {
+      if(username == 'lvega' && password =='lvega123'){
+        setLoggeado(true)
+        navigate('/')
+      } else{
+        notifyError('Usuario o contraseña incorrectos');
+      }
+    } catch (error) {
+      notifyError('Error desconocido');
     }
+    
   }
 
   useEffect(() => {}, [loggeado]);
   
   
   return (
-      <div>
+    <>
+    <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
+    
         <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
           <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
 
@@ -90,7 +101,8 @@ function Login() {
           </div>
         </section>
         <Footer/>
-      </div>
+      <ToastContainer />
+      </>
   );
   
 }
