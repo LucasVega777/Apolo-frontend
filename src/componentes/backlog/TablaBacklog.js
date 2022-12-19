@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
-import RolForm from "./RolForm";
 
-export default function Tabla({columnas, data, onEdit, onDelete}) {
+export default function TablaBacklog({columnas, data, onEdit, onDelete}) {
 
     console.log("Columnas: ", columnas);
     console.log("Data: ", data)
@@ -65,7 +64,7 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
                                     <td></td><td></td><td></td>
                                     <td>
                                         <button
-                                            onClick={() => onDelete(row.values.idRol)}
+                                            onClick={() => onDelete(row.values.idBacklog)}
                                             className={'btn btn-primary'} 
                                         >
                                             Eliminar
@@ -77,7 +76,6 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
                         })
                     }
                 </tbody>
-
             </table>
         </>
     )

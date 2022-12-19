@@ -21,6 +21,9 @@ function Header () {
                 <li><a href={'/usuarios'}>Usuarios</a></li>
                 <li><a href={'/proyectos'}>Proyectos</a></li>
                 <li><a href={'/gestion'}>Gestion</a></li>
+                <li><a href={'/permisos'}>Permisos</a></li>
+                <li><a href={'/asignar_roles_permisos'}>Asignar roles a permisos</a></li>
+                <li><a href={'/forms'}>Formulario</a></li>
                 <li><a href={'/frontendAprendeLDS'}>Cerrar Sesion</a></li>
               </ul>
             </nav>
