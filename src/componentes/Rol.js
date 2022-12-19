@@ -22,20 +22,23 @@ export default function TablaRol() {
         }
     ])
 
-
     const [roles, setRoles] = useState([])
 
-    if (data.allRules.nodes && roles.length === 0)
+    if (data?.allRules?.nodes && roles.length === 0) {
         setRoles(data.allRules.nodes);
+    }
+    
+    
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error: {error.message}</p>
-    const datoTabla = Tabla(columnas, roles)
+    
+    
 
     if(data) {
         return (
             <>
                 <h4>Listado de roles</h4>
-                {datoTabla}
+                <Tabla columnas={columnas} data={roles}/>
             </>
         )
     }

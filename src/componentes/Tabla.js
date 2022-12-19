@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useTable } from "react-table";
 
 
-export default function Tabla(columnas, data, name) {
+export default function Tabla({columnas, data}) {
 
     console.log("Columnas: ", columnas);
     console.log("Data: ", data)
