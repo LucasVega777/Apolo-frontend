@@ -14,6 +14,8 @@ import Permiso from "./componentes/permisos/Permiso"
 import RolPermiso from "./componentes/roles_permisos/RolPermiso";
 import Form from "./componentes/formulario/Formulario";
 import { GestionProyectos } from "./componentes/gestion/home";
+import Backlog from "./componentes/backlog/Backlog"
+
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
               element={<Forms/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
+            <Route path="/backlogs" exact key={"/backlogs"} 
+              element={<Backlogs/>}/>
             <Route
                     path="/gestion"
                     exact
@@ -159,6 +163,20 @@ const Forms = function (){
       <Header/>
       <section id={'hero'} className={'hero'}>
         <Form/>  
+      </section>
+      <Footer/>
+    </>
+    </>
+  )
+}
+
+const Backlogs = function ( ) {
+  return (
+    <>
+    <>
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+        <Backlog/>  
       </section>
       <Footer/>
     </>

@@ -9,6 +9,8 @@ import { useState } from "react";
 import { EDITAR_BACKLOG } from "../../graphql/mutaciones";
 import SelectProyecto from "./SelectProyecto";
 import { GET_ALL_BACKLOGS } from "../../graphql/querys";
+import swal from 'sweetalert';
+
 
 const RolForm = (props) => {
     const [crearBacklog, { data, loading, error }] =
@@ -54,6 +56,11 @@ const RolForm = (props) => {
                             const proyectoEncontrado = backlogs.find(back => back.idProyecto === +valores.idProyecto)
 
                             if(proyectoEncontrado) {
+                                swal({
+                                    title: "Error!",
+                                    text: "El proyecto ya cuenta con un backlog asociado.",
+                                    icon: "error",
+                                });
                                 throw new Error("El proyecto ya cuenta con un backlog asociado.")
                             }
                         }
@@ -91,6 +98,11 @@ const RolForm = (props) => {
                             const proyectoEncontrado = backlogs.find(back => back.idProyecto === +valores.idProyecto)
 
                             if(proyectoEncontrado) {
+                                swal({
+                                    title: "Error!",
+                                    text: "El proyecto ya cuenta con un backlog asociado.",
+                                    icon: "error",
+                                });                                
                                 throw new Error("El proyecto ya cuenta con un backlog asociado.")
                             }
                         }
