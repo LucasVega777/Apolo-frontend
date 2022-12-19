@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://lucasvega77.github.io/frontendAprendeLDS",
   "dependencies": {
+    "-": "^0.0.1",
     "@apollo/client": "^3.7.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -21,6 +22,7 @@
     "react-table": "^7.8.0",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

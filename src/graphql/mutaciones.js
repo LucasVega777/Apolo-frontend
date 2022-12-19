@@ -111,3 +111,25 @@ export const ELIMINAR_PROYECTO = gql`
         }
     }
 `;
+
+export const CREATE_USER = gql`
+    mutation CreateUser($input: CreateUserInput!) {
+    createUser(input: $input) {
+      user {
+        idUser
+        name
+        password
+      }
+    }
+  }
+`;
+
+export const DELETE_USER = gql`
+    mutation DeleteUserByIdUser($input: DeleteUserByIdUserInput!) {
+    deleteUserByIdUser(input: $input) {
+      user {
+        name
+      }
+    }
+  }
+`;

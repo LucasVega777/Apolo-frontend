@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from './login'
@@ -8,7 +8,8 @@ import * as ProyectoHome from "./componentes/proyecto/home";
 import Footer from "./componentes/footer";
 import Usuario from "./componentes/usuarios/home"
 import DataTable from "./componentes/usuarios/dataTable"
-
+import FRMusuario from "./componentes/usuarios/formulario"
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
             <Route path="/" exact key={"/"} element={<HomePage/>}/>
             <Route path="/frontendaprendelds" exact key={"/frontendaprendelds"} 
               element={<Login/>}/>
+            <Route path="/frontendaprendelds/usuarios" exact key={"/frontendaprendelds"} 
+              element={<Redireccion/>}/>
             <Route path="/usuarios" exact key={"/usuarios"} 
               element={<Usuarios/>}/>
             <Route path="/roles" exact key={"/roles"} 
@@ -37,12 +40,12 @@ const Usuarios = function (){
   return (
     <>
       <Header/>
-      <section id={'hero'} className={'hero'}>
-        <div className={'container'}>
+      {/* <section id={'hero'} className={'hero'}>
+        <div className={'container'}> */}
           <Usuario/>
-          {/* <DataTable/> */}
-        </div>   
-      </section>
+        {/* </div>   
+      </section> */}
+      {/* <FRMusuario/> */}
       <Footer/>
     </>
   ) 
@@ -74,6 +77,20 @@ const Proyectos = function (){
       </div>   
       </section>
       <Footer/>
+    </>
+  )
+}
+
+
+
+const Redireccion = function (){
+  const navigate = useNavigate();
+  
+
+  useEffect(()=>{ navigate('/usuarios') }, [])
+  return (
+    <>
+      <h1> Redireccionando...</h1>
     </>
   )
 }
