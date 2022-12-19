@@ -6,7 +6,8 @@ import HomePage from "./HomePage";
 import { useNavigate } from 'react-router-dom';
 import { notifyError } from "./utils/funciones";
 import {ToastContainer} from 'react-toastify'
-
+import { useQuery } from "@apollo/client";
+import { GET_USER_BY_CREDENTIALS, GET_ALL_USERS } from "./graphql/querys";
 
 function Login() {
   const [menu, setMenu] = useState('mobile-nav-show');
@@ -16,10 +17,10 @@ function Login() {
   const [datos, setDatos] = useState([]);
   const [loggeado, setLoggeado] = useState(false)
   const navigate = useNavigate();
-
+  
+  const { loading, error, data } = useQuery(GET_ALL_USERS);
 
   const buscar = async(str, id) => {
-    console.log(str)
     if (id=='username'){
       if (str.length === 0) {
         setUsername('')
@@ -39,7 +40,13 @@ function Login() {
   
   const busqueda = async() => {
     try {
-      if(username == 'lvega' && password =='lvega123'){
+      let coincide = false;
+      for (const usuario of data.allUsers.nodes) {
+        if(username == usuario.name && password == usuario.password){
+          coincide = true;
+        }
+      } 
+      if(coincide){
         setLoggeado(true)
         navigate('/')
       } else{
@@ -48,7 +55,6 @@ function Login() {
     } catch (error) {
       notifyError('Error desconocido');
     }
-    
   }
 
   useEffect(() => {}, [loggeado]);
@@ -61,7 +67,7 @@ function Login() {
         <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
           <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
 
-            <a href={'https://lucasvega777.github.io/frontendAprendeLDS/'} className={'logo d-flex align-items-center'}>
+            <a href={'/frontendAprendeLDS'} className={'logo d-flex align-items-center'}>
               <h1>IS2</h1>
             </a>
 

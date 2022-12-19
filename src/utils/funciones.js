@@ -3,13 +3,7 @@ import {toast} from "react-toastify";
 
 
 const notifyError = (res) => {
-    let text;
-    try {
-        text = res.data.mensaje;
-    } catch (e) {
-        text = 'Error desconocido'
-    }
-    toast.error(text, {
+    toast.error(res, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

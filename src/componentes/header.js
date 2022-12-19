@@ -7,7 +7,7 @@ function Header () {
         <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
           <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
 
-            <a href={'https://lucasvega777.github.io/frontendAprendeLDS/'} className={'logo d-flex align-items-center'}>
+            <a href={'/'} className={'logo d-flex align-items-center'}>
               <h1>IS2</h1>
             </a>
 
@@ -16,10 +16,11 @@ function Header () {
             <nav id={'navbar'} className={'navbar'}
             style={{right: (x === 'mobile-nav-show') ? '0' : '-100%'}}>
               <ul>
-                <li><a href={'/frontendAprendeLDS/'} className={'active'}>Home</a></li>
+                <li><a href={'/'} className={'active'}>Home</a></li>
                 <li><a href={'/roles'}>Roles</a></li>
                 <li><a href={'/usuarios'}>Usuarios</a></li>
                 <li><a href={'/proyectos'}>Proyectos</a></li>
+                <li><a href={'/frontendAprendeLDS'}>Cerrar Sesion</a></li>
               </ul>
             </nav>
 

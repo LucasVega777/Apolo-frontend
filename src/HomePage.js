@@ -9,25 +9,6 @@ import Header from './componentes/header'
 
 
 function HomePage() {
-  const [terminoBusqueda, setTerminoBusqueda] = useState('');
-  const [datos, setDatos] = useState([]);
-
-  const buscar = async(str) => {
-    if (str.length === 0) {
-        setTerminoBusqueda('')
-        return;
-    }
-    setTerminoBusqueda(encodeURI(str));
-  }
-
-  
-  const busqueda = async() => {
-    let url = `https://api-lds.herokuapp.com/api/v1/palabras/busqueda?termino=${terminoBusqueda}`;
-    let response = await axios.get(url);
-    setDatos(response.data);    
-  }
-
-  useEffect(() => {}, [datos]);
   return (
       <div>
         <Header/>

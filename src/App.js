@@ -4,7 +4,7 @@ import HomePage from "./HomePage";
 import Login from './login'
 import Header from "./componentes/header";
 import * as ProyectoHome from "./componentes/proyecto/home";
-
+import Footer from "./componentes/footer";
 
 
 function App() {
@@ -34,10 +34,12 @@ const Usuarios = function (){
   return (
     <>
       <Header/>
-      <section id={'hero'} className={'hero d-flex align-items-center'}></section>
+      <section id={'hero'} className={'hero'}>
         <div className={'container'}>
           <h1> Usuarios  </h1>
         </div>   
+      </section>
+      <Footer/>
     </>
   ) 
 }
@@ -48,10 +50,12 @@ const Roles = function (){
   return  (
     <>
       <Header/>
-      <section id={'hero'} className={'hero d-flex align-items-center'}></section>
+      <section id={'hero'} className={'hero'}>
         <div className={'container'}>
           <h1> Roles  </h1>
         </div>    
+        </section>
+      <Footer/>
     </>
   )
 }
@@ -61,9 +65,13 @@ const Proyectos = function (){
 
   return (
     <>
-        <div className={'container'}>
-          <ProyectoHome.default/>
-        </div>   
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+      <div className={'container'}>
+        <ProyectoHome.default/>
+      </div>   
+      </section>
+      <Footer/>
     </>
   )
 }

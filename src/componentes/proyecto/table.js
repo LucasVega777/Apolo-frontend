@@ -22,28 +22,37 @@ class Proyecto extends React.Component {
         return (
             <>
                 <td>{this.state.idProyecto}</td>
+                <td></td>
                 <td>{this.state.descripcion}</td>
+                <td></td>
                 <td>{fechaInicio.toDateString()}</td>
+                <td></td>
                 <td>{fechaFin.toDateString()}</td>
+                <td></td>
                 <td>
                     <button
                         onClick={() => this.props.onEdit(this.state)}
+                        className={'btn btn-primary'} 
                     >
                         Editar
                     </button>
                 </td>
+                <td></td><td></td><td></td>
                 <td>
                     <button
                         onClick={() =>
                             this.props.onDelete(this.state.idProyecto)
                         }
+                        className={'btn btn-primary'} 
                     >
                         Eliminar
                     </button>
                 </td>
+                <td></td><td></td><td></td>
                 <td>
                     <button
                         onClick={() => this.props.onVer(this.state.idProyecto)}
+                        className={'btn btn-primary'} 
                     >
                         Ver
                     </button>

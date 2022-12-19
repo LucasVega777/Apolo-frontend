@@ -57,13 +57,27 @@ export const GET_ALL_ROLES = gql`
 `;
 
 export const GET_USER_BY_CREDENTIALS = gql`
-    query UserByCredentials($user: String!, $password: String!) {
-        userByUsername(user: $user, password: $password) {
-            id_user
+    query AllUsers($condition: UserCondition) {
+    allUsers(condition: $condition) {
+        nodes {
             name
-            user
+            password
+            idUser
         }
     }
+}
+`;
+
+export const GET_ALL_USERS = gql`
+    query Nodes {
+    allUsers {
+        nodes {
+        name
+        password
+        idUser
+        }
+    }
+}
 `;
 
 export const GET_PROYECTO_DETALLE = gql`

@@ -85,9 +85,13 @@ function Proyectos(props) {
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th></th>
                         <th>Descripcion</th>
+                        <th></th>
                         <th>Fecha Inicio</th>
+                        <th></th>
                         <th>Fecha Fin</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +106,7 @@ function Proyectos(props) {
                                 onVer={handleDetalle}
                                 onEdit={handleEdit}
                             />
+                            <br/><br/><br/>
                         </tr>
                     ))}
                 </tbody>

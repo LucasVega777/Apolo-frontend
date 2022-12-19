@@ -70,29 +70,31 @@ const ProyectoForm = (props) => {
             }}
         >
             {({ isSubmitting }) => (
-                <Form>
-                    <Field
-                        type="text"
-                        name="descripcion"
-                        placeholder={props.descripcion}
-                    />
-                    <ErrorMessage name="descripcion" component="div" />
-                    <Field
-                        type="text"
-                        name="fechaInicio"
-                        placeholder={props.fechaInicio}
-                    />
-                    <ErrorMessage name="fechaInicio" component="div" />
-                    <Field
-                        type="text"
-                        name="fechaFin"
-                        placeholder={props.fechaInicio}
-                    />
-                    <ErrorMessage name="fechaFin" component="div" />
-                    <button type="submit" disabled={isSubmitting}>
-                        {props.mode === "create" ? "Crear" : "Editar"}
-                    </button>
-                </Form>
+                <div>
+                    <Form>
+                        <Field
+                            type="text"
+                            name="descripcion"
+                            placeholder={props.descripcion}
+                        />
+                        <ErrorMessage name="descripcion" component="div" />
+                        <Field
+                            type="text"
+                            name="fechaInicio"
+                            placeholder={props.fechaInicio}
+                        />
+                        <ErrorMessage name="fechaInicio" component="div" />
+                        <Field
+                            type="text"
+                            name="fechaFin"
+                            placeholder={props.fechaInicio}
+                        />
+                        <ErrorMessage name="fechaFin" component="div" />
+                        <button type="submit" disabled={isSubmitting}  className={'btn btn-primary'} >
+                            {props.mode === "create" ? "Crear" : "Editar"}
+                        </button>
+                    </Form>
+                </div>
             )}
         </Formik>
     );
