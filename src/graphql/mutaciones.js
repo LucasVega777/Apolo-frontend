@@ -249,3 +249,31 @@ export const EDITAR_USUARIO = gql`
     }
 }
 `
+
+
+/**
+ * Sprints 
+*/
+export const CREAR_SPRINT = gql`
+    mutation CreateSprint($input: CreateSprintInput!) {
+    createSprint(input: $input) {
+        clientMutationId
+    }
+    }
+`
+
+export const DELETE_SPRINT = gql`
+    mutation DeleteSprintByIdSprint($input: DeleteSprintByIdSprintInput!) {
+        deleteSprintByIdSprint(input: $input) {
+            deletedSprintId  
+        }
+    }
+`
+
+export const UPDATE_SPRINT = gql`
+    mutation UpdateSprintByIdSprint($input: UpdateSprintByIdSprintInput!) {
+        updateSprintByIdSprint(input: $input) {
+            clientMutationId
+        }
+    }
+`

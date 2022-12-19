@@ -4,20 +4,21 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREAR_BACKLOG } from "../../graphql/mutaciones";
+import { CREAR_SPRINT } from "../../graphql/mutaciones";
 import { useState } from "react";
-import { EDITAR_BACKLOG } from "../../graphql/mutaciones";
-import SelectProyecto from "./SelectProyecto";
-import { GET_ALL_BACKLOGS } from "../../graphql/querys";
+import { UPDATE_SPRINT } from "../../graphql/mutaciones";
+import { GET_ALL_SPRINTS } from "../../graphql/querys";
 import swal from 'sweetalert';
+import SelectBacklog from "./SelectBacklog";
+import SelectEstado from "./SelectEstado";
+import SelectProyecto from "../backlog/SelectProyecto";
 
-
-const RolForm = (props) => {
-    const [crearBacklog, { data, loading, error }] =
-        useMutation(CREAR_BACKLOG);
+const SprintForm = (props) => {
+    const [crearSprint, { data, loading, error }] =
+        useMutation(CREAR_SPRINT);
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
-    const [editarBacklog] = useMutation(EDITAR_BACKLOG);
-    const backs = useQuery(GET_ALL_BACKLOGS)
+    const [editarSprint] = useMutation(UPDATE_SPRINT);
+    const sprs = useQuery(GET_ALL_SPRINTS)
     if (loading) return "Submitting...";
     if (error) return `Submission error! ${error}`;
 
@@ -25,12 +26,14 @@ const RolForm = (props) => {
         <>
             <Formik
                 initialValues={{
-                    idProyecto: "",
+                    idSprint: "",
                     descripcion: "",
                     nombreProyecto: "",
                     fechaInicio: new Date(),
                     fechaFin: new Date(),
-                    idProyecto: ""
+                    idProyecto: "",
+                    idBacklog: "",
+                    estado: ""
                 }}
                 validate={(valores) => {
 
@@ -49,31 +52,17 @@ const RolForm = (props) => {
                         const max = 1000
                         const min = 1
                         const identificador = Math.ceil(Math.random() * (max - min) + min)
-
-                        const backlogs = backs.data?.allBacklogs?.nodes
-
-                        if(valores.idProyecto) {
-                            const proyectoEncontrado = backlogs.find(back => back.idProyecto === +valores.idProyecto)
-
-                            if(proyectoEncontrado) {
-                                swal({
-                                    title: "Error!",
-                                    text: "El proyecto ya cuenta con un backlog asociado.",
-                                    icon: "error",
-                                });
-                                throw new Error("El proyecto ya cuenta con un backlog asociado.")
-                            }
-                        }
                         
-                        crearBacklog({
+                        crearSprint({
                             variables: {
                                 input: {
-                                    backlog: {
-                                        "idBacklog": identificador,
+                                    sprint: {
+                                        "idSprint": identificador,
                                         "fechaInicio": new Date(valores.fechaInicio),
                                         "fechaFin": new Date(valores.fechaFin),
                                         "descripcion": valores.descripcion.toLocaleUpperCase(),
-                                        "idProyecto": (!valores.idProyecto || "") ? null : +valores.idProyecto
+                                        "idBacklog": (!valores.idBacklog || "") ? null : +valores.idBacklog,
+                                        "estado": valores.estado
                                     }
                                 }
                             }
@@ -91,32 +80,17 @@ const RolForm = (props) => {
                         }
                     }
                     else {
-                        console.log(`Editando rol ${props.idRol}`);
-                        const backlogs = backs.data?.allBacklogs?.nodes
 
-                        if(valores.idProyecto) {
-                            const proyectoEncontrado = backlogs.find(back => back.idProyecto === +valores.idProyecto)
-
-                            if(proyectoEncontrado) {
-                                swal({
-                                    title: "Error!",
-                                    text: "El proyecto ya cuenta con un backlog asociado.",
-                                    icon: "error",
-                                });                                
-                                throw new Error("El proyecto ya cuenta con un backlog asociado.")
-                            }
-                        }
-
-
-                        editarBacklog({
+                        editarSprint({
                             variables: {
                                 input: {
-                                    backlogPatch: {
+                                    sprintPatch: {
                                         descripcion: valores.descripcion,
                                         fechaFin: new Date(valores.fechaFin),
-                                        idProyecto: (!valores.idProyecto || "") ? null : +valores.idProyecto
+                                        idBacklog: (!valores.idProyecto || "") ? null : +valores.idBacklog,
+                                        estado: valores.estado
                                     },
-                                    idBacklog: +props.idBacklog,
+                                    idSprint: +props.idSprint,
                                 },
                             },
                         });
@@ -175,7 +149,8 @@ const RolForm = (props) => {
                                 onBlur={handleBlur}
                             />
                             {touched.fechaFin && errors.fechaFin && <div className='error'> {errors.fechaFin} </div>}
-                            <SelectProyecto name="idProyecto" defaultValue={values.idProyecto} handleChange={handleChange}/>
+                            <SelectBacklog name="idBackog" defaultValue={values.idBacklog} handleChange={handleChange}/>
+                            <SelectEstado name="estado" defaultValue={values.estado} handleChange={handleChange}/>
                         </div>
                         <button type="submit" disabled={isSubmitting}  className={'btn btn-primary'} >
                             {props.mode === "create" ? "Crear" : "Editar"}
@@ -188,4 +163,4 @@ const RolForm = (props) => {
     );
 };
 
-export default RolForm;
+export default SprintForm;

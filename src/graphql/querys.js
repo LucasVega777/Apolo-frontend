@@ -189,3 +189,38 @@ export const GET_ALL_BACKLOGS = gql`
     }
     }
 `
+
+/**
+ * Sprints
+*/
+export const GET_ALL_SPRINTS = gql`
+query Nodes {
+  allSprints {
+    nodes {
+      idBacklog
+      idSprint
+      fechaInicio
+      fechaFin
+      estado
+      descripcion
+      backlogByIdBacklog {
+        descripcion
+        projectByIdProyecto {
+          idProyecto
+        }
+      }
+    }
+  }
+}
+`
+
+export const GET_ESTADOS = gql`
+    query Nodes {
+    allStatuses {
+        nodes {
+        idEstado
+        descripcion
+        }
+    }
+    }
+`

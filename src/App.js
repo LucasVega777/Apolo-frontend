@@ -16,6 +16,9 @@ import Form from "./componentes/formulario/Formulario";
 import { GestionProyectos } from "./componentes/gestion/home";
 import Formulario from "./componentes/formulario/TablaForm";
 import FormularioEditar from './componentes/usuarios/formularioEditar';
+import Backlog from "./componentes/backlog/Backlog"
+import Sprints from "./componentes/sprints/Sprints";
+
 
 function App() {
   return (
@@ -38,6 +41,10 @@ function App() {
               element={<Forms/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
+            <Route path="/backlogs" exact key={"/backlogs"} 
+              element={<Backlogs/>}/>
+            <Route path="/sprints" exact key={"/backlogs"} 
+              element={<AllSprints/>}/>
             <Route
                     path="/gestion"
                     exact
@@ -167,6 +174,35 @@ const Forms = function (){
     </>
     </>
   )
+}
+
+const Backlogs = function ( ) {
+  return (
+    <>
+    <>
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+        <Backlog/>  
+      </section>
+      <Footer/>
+    </>
+    </>
+  )
+}
+
+
+const AllSprints = function () {
+  return (
+    <>
+    <>
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+        <Sprints/>  
+      </section>
+      <Footer/>
+    </>
+    </>
+  )  
 }
 
 export default App;
