@@ -1,8 +1,8 @@
 {
-  "name": "aprendelds",
-  "version": "0.3.0",
+  "name": "apolo",
+  "version": "3.0.3",
   "private": true,
-  "homepage": "http://lucasvega77.github.io/frontendAprendeLDS",
+  "homepage": "https://lucasvega777.github.io/Apolo-frontend/",
   "dependencies": {
     "-": "^0.0.1",
     "@apollo/client": "^3.7.2",

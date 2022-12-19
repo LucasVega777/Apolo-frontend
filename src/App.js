@@ -25,9 +25,9 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/" exact key={"/"} element={<HomePage/>}/>
-            <Route path="/frontendaprendelds" exact key={"/frontendaprendelds"} 
+            <Route path="/apolo-frontend" exact key={"/apolo-frontend"} 
               element={<Login/>}/>
-            <Route path="/frontendaprendelds/usuarios" exact key={"/frontendaprendelds"} 
+            <Route path="/apolo-frontend/usuarios" exact key={"/apolo-frontend"} 
               element={<Redireccion/>}/>
             <Route path="/usuarios" exact key={"/usuarios"} 
               element={<Usuarios/>}/>

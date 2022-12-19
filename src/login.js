@@ -67,7 +67,7 @@ function Login() {
         <header id={'header'} className={'header d-flex align-items-center fixed-top'}>
           <div className={'container-fluid container-xl d-flex align-items-center justify-content-between'}>
 
-            <a href={'/frontendAprendeLDS'} className={'logo d-flex align-items-center'}>
+            <a href={'/apolo-frontend'} className={'logo d-flex align-items-center'}>
               <h1>IS2</h1>
             </a>
 

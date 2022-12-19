@@ -34,7 +34,7 @@ function Header () {
                     <li><a href={'/gestion'}>Gestion de Proyectos</a></li>
                   </ul>
                 </li>
-                <li><a href={'/frontendAprendeLDS'}>Cerrar Sesion</a></li>
+                <li><a href={'/apolo-frontend'}>Cerrar Sesion</a></li>
               </ul>
             </nav>
 
