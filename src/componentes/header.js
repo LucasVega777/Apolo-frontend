@@ -14,7 +14,7 @@ function Header () {
             <i className={'mobile-nav-toggle ' + menu + ' bi bi-list'} onClick={() => {setX('mobile-nav-show'); setMenu('mobile-nav-hide d-none')}}></i>
             <i className={'mobile-nav-toggle ' + x + ' bi bi-x'} onClick={() => {setX('mobile-nav-hide d-none'); setMenu('mobile-nav-show')}}></i>
             <nav id={'navbar'} className={'navbar'}
-            style={{right: (x === 'mobile-nav-show') ? '0' : '-100%'}}>
+            style={{right: (x === 'mobile-nav-show') ? '0' : '0'}}>
               <ul>
                 <li><a href={'/'} className={'active'}>Home</a></li>
                 <li><a href={'/roles'}>Roles</a></li>
