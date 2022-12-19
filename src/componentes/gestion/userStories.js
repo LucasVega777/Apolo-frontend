@@ -4,12 +4,12 @@ import { useMutation } from "@apollo/client";
 import { CREAR_USER_STORY } from "../../graphql/mutaciones";
 
 export const UserStoryForm = (props) => {
-    const [createUserStory, { data, loading, error }] =
+    const [createUserStory, { loading, error, data }] =
         useMutation(CREAR_USER_STORY);
 
     if (loading) return "Submitting...";
     if (error) return `Submission error! ${error}`;
-    console.log(data)
+    console.log(props);
 
     return (
         <Formik
@@ -19,7 +19,7 @@ export const UserStoryForm = (props) => {
                 titulo: "",
                 idUserStory: Math.floor(Math.random() * 100),
                 idEstado: "1",
-                idBacklog: 1,
+                idBacklog: props.idBacklog || 1,
             }}
             validate={(values) => {
                 const errors = {};
@@ -31,6 +31,10 @@ export const UserStoryForm = (props) => {
                 }
                 if (!values.titulo) {
                     errors.titulo = "Required";
+                }
+                if (!values.idBacklog) {
+                    errors.idBacklog = "Required";
+                    alert("No se ha seleccionado un proyecto");
                 }
                 return errors;
             }}
@@ -69,4 +73,4 @@ export const UserStoryForm = (props) => {
             </Form>
         </Formik>
     );
-}
+};

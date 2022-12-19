@@ -90,6 +90,7 @@ export const GET_PROYECTO_DETALLE = gql`
             backlogsByIdProyecto {
                 totalCount
                 nodes {
+                    idBacklog
                     descripcion
                     fechaFin
                     fechaInicio
