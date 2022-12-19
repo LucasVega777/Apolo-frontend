@@ -94,6 +94,7 @@ export const GET_PROYECTO_DETALLE = gql`
                     fechaFin
                     fechaInicio
                     sprintsByIdBacklog {
+                        totalCount
                         nodes {
                             estado
                             fechaInicio

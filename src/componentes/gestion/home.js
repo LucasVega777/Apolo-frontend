@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_PROYECTOS } from "../../graphql/querys";
-import DetalleProyecto from "../proyecto/detalle";
+import { DetalleProyecto } from "../gestion/detalle";
 
 export const GestionProyectos = () => {
     const [idProyecto, setIdProyecto] = useState(1);
@@ -32,4 +32,3 @@ export const GestionProyectos = () => {
         </div>
     );
 };
-
