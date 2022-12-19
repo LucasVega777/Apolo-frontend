@@ -14,7 +14,8 @@ import Permiso from "./componentes/permisos/Permiso"
 import RolPermiso from "./componentes/roles_permisos/RolPermiso";
 import Form from "./componentes/formulario/Formulario";
 import { GestionProyectos } from "./componentes/gestion/home";
-
+import Formulario from "./componentes/formulario/TablaForm";
+import FormularioEditar from './componentes/usuarios/formularioEditar';
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
                     key={"/gestion"}
                     element={<Gestion />}
                 />
+            <Route path="/editar/usuarios/:id" exact key={"/usuarios/editar"} 
+              element={<FormularioEditar/>}/>
         </Routes>
       </BrowserRouter>
   );

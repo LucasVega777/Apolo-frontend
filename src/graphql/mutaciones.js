@@ -238,3 +238,14 @@ export const EDITAR_BACKLOG = gql`
     }
     }
 `
+
+
+export const EDITAR_USUARIO = gql`
+    mutation UpdateUser($input: UpdateUserByIdUserInput!) {
+    updateUserByIdUser(input: $input) {
+        user {
+            nodeId
+        }
+    }
+}
+`

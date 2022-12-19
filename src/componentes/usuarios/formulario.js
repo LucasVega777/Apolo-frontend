@@ -72,8 +72,6 @@ export default function FRMusuario() {
                 }
             })
             
-            
-
             await swal({
                 title: "Exito!",
                 text: "Has creado el usuario correctamente",

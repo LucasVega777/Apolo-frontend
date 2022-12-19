@@ -27,15 +27,12 @@ export default function Usuario() {
         })
     }
     
-    // const editar = async(id)=> {
-    //     await swal({title: 'Datos del Usuario:',
-    //         text: `
-    //         idUser: ${datos.idUser}\n
-    //         nombre: ${datos.name}\n            
-    //         `
-    //     })
-    //     window.href = `/usuarios/editar/${id}`
-    // }
+    const editar = async(id)=> {
+        await swal({title: 'Redireccion:',
+            text: `Presiona ok y seras redirigido a la pestaña de edicion`
+        })
+        window.location = `/editar/usuarios/${id}`
+    }
 
     const eliminar = async(id)=> {
         try {
@@ -92,7 +89,10 @@ export default function Usuario() {
                                 
                                     <td>
                                         <button
-                                            className={'btn btn-primary'} 
+                                            className={'btn btn-primary'}
+                                            onClick={()=>{
+                                                editar(usuario.idUser)
+                                            }}
                                         >
                                             Editar
                                         </button>
