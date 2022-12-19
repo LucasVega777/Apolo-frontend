@@ -49,10 +49,11 @@ const Roles = function (){
   return  (
     <>
       <Header/>
-      <section id={'hero'} className={'hero d-flex align-items-center'}></section>
+      <section id={'hero'} className={'hero d-flex'}>
         <div className={'container'}>
           <h1> Roles  </h1>
         </div>    
+      </section>
     </>
   )
 }
