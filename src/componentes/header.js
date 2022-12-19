@@ -17,13 +17,22 @@ function Header () {
             style={{right: (x === 'mobile-nav-show') ? '0' : '0'}}>
               <ul>
                 <li><a href={'/'} className={'active'}>Home</a></li>
-                <li><a href={'/roles'}>Roles</a></li>
-                <li><a href={'/usuarios'}>Usuarios</a></li>
-                <li><a href={'/proyectos'}>Proyectos</a></li>
-                <li><a href={'/permisos'}>Permisos</a></li>
-                <li><a href={'/asignar_roles_permisos'}>Asignar roles a permisos</a></li>
                 <li><a href={'/forms'}>Formulario</a></li>
-                <li><a href={'/gestion'}>Gestion</a></li>
+                <li class="dropdown"><a href="#"><span>Seguridad</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                  <li><a href={'/roles'}>Roles</a></li>
+                  <li><a href={'/usuarios'}>Usuarios</a></li>
+                  <li><a href={'/proyectos'}>Proyectos</a></li>
+                  <li><a href={'/permisos'}>Permisos</a></li>
+                  <li><a href={'/asignar_roles_permisos'}>Asignar roles a permisos</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#"><span>Gestion</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href={'/proyectos'}>Proyectos</a></li>
+                    <li><a href={'/gestion'}>Gestion de Proyectos</a></li>
+                  </ul>
+                </li>
                 <li><a href={'/frontendAprendeLDS'}>Cerrar Sesion</a></li>
               </ul>
             </nav>
