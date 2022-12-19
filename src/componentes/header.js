@@ -30,6 +30,7 @@ function Header () {
                   <ul>
                     <li><a href={'/proyectos'}>Proyectos</a></li>
                     <li><a href={'/backlogs'}>Backlogs</a></li>
+                    <li><a href={'/sprints'}>Sprints</a></li>
                     <li><a href={'/gestion'}>Gestion de Proyectos</a></li>
                   </ul>
                 </li>

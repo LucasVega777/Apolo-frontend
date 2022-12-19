@@ -15,7 +15,7 @@ import RolPermiso from "./componentes/roles_permisos/RolPermiso";
 import Form from "./componentes/formulario/Formulario";
 import { GestionProyectos } from "./componentes/gestion/home";
 import Backlog from "./componentes/backlog/Backlog"
-
+import Sprints from "./componentes/sprints/Sprints";
 
 
 function App() {
@@ -41,6 +41,8 @@ function App() {
               element={<Proyectos/>}/>
             <Route path="/backlogs" exact key={"/backlogs"} 
               element={<Backlogs/>}/>
+            <Route path="/sprints" exact key={"/backlogs"} 
+              element={<AllSprints/>}/>
             <Route
                     path="/gestion"
                     exact
@@ -182,6 +184,21 @@ const Backlogs = function ( ) {
     </>
     </>
   )
+}
+
+
+const AllSprints = function () {
+  return (
+    <>
+    <>
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+        <Sprints/>  
+      </section>
+      <Footer/>
+    </>
+    </>
+  )  
 }
 
 export default App;
