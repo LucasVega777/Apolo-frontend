@@ -18,7 +18,7 @@ function App() {
             <Route path="/usuarios" exact key={"/usuarios"} 
               element={<Usuarios/>}/>
             <Route path="/roles" exact key={"/roles"} 
-              element={<TablaRol/>}/>
+              element={<Roles/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
         </Routes>
@@ -52,9 +52,7 @@ const Roles = function (){
     <>
       <Header/>
       <section id={'hero'} className={'hero'}>
-        <div className={'container'}>
-          <h1> Roles  </h1>
-        </div>    
+        <TablaRol/>  
         </section>
       <Footer/>
     </>

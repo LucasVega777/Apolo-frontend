@@ -8,28 +8,8 @@ import Tabla from "./Tabla";
 
 export default function TablaRol() {
 
-    const initialState = [{
-        idRol: 0,
-        descripcion: 'Prueba'
-    }]
-
-    const roles = useQuery(GET_ALL_ROLES)
-    const { data, loading, error } = roles
-
-    const [rol, setRol] = useState(initialState)
-    useEffect(() => {
-        setRol(rol)
-    }, [rol])
-    
-    // let datos
-    // if(data)
-    //     datos = data.allRules.nodes
-    //     setRol(datos)
-    
-    if(loading) return <p>Loading...</p>
-    if(error) return <p>Error: {error.message}</p>
-
-    const columnas = [
+    const { data, loading, error } = useQuery(GET_ALL_ROLES)
+    const [columnas, setColumnas] = useState( [
         {
             Header: "Identificador",
             accessor: "idRol",
@@ -40,11 +20,16 @@ export default function TablaRol() {
             accessor: "descripcion",
             Cell: ({ value }) => <strong>{value}</strong>
         }
-    ]
+    ])
 
-    const datoTabla = Tabla(columnas, rol)
 
-    console.log("Dato Tabla: ", datoTabla);
+    const [roles, setRoles] = useState([])
+
+    if (data.allRules.nodes && roles.length === 0)
+        setRoles(data.allRules.nodes);
+    if(loading) return <p>Loading...</p>
+    if(error) return <p>Error: {error.message}</p>
+    const datoTabla = Tabla(columnas, roles)
 
     if(data) {
         return (
