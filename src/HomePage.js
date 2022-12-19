@@ -10,7 +10,7 @@ function HomePage() {
         <Header/>
         <section id={'hero'} className={'hero d-flex align-items-center'}>
         <div className={'container'}>
-          <h1> Pagina principal  </h1>
+          <h1> Gestion de Proyectos </h1>
         </div>
         </section>
         <Footer/>
