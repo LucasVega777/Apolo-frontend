@@ -111,3 +111,47 @@ export const ELIMINAR_PROYECTO = gql`
         }
     }
 `;
+
+/**
+ * Roles y permisos
+*/
+
+export const CREAR_ROL_PERMISO = gql`
+    mutation CreateRulesPermission($input: CreateRulesPermissionInput!) {
+    createRulesPermission(input: $input) {
+        permissionByIdPermiso {
+            descripcion
+        }
+        ruleByIdRol {
+            descripcion
+        }
+    }
+    }
+`
+
+export const EDITAR_ROL_PERMISO = gql`
+mutation UpdateRulesPermissionByIdRolPermiso($input: UpdateRulesPermissionByIdRolPermisoInput!) {
+  updateRulesPermissionByIdRolPermiso(input: $input) {
+    ruleByIdRol {
+      descripcion
+    }
+
+    permissionByIdPermiso {
+      descripcion
+    }
+  }
+}  
+`
+
+export const ELIMINAR_ROL_PERMISO = gql`
+    mutation DeleteRulesPermissionByIdRolPermiso($input: DeleteRulesPermissionByIdRolPermisoInput!) {
+    deleteRulesPermissionByIdRolPermiso(input: $input) {
+        ruleByIdRol {
+            descripcion
+        }
+        permissionByIdPermiso {
+            descripcion
+        }
+    }
+    }
+`

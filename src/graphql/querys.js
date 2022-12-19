@@ -125,3 +125,26 @@ export const GET_PROYECTO_DETALLE = gql`
         }
     }
 `;
+
+
+/**
+ * Listado de roles con los permisos asignados.
+*/
+
+export const GET_ROLES_PERMISOS = gql`
+    query Nodes {
+    allRulesPermissions {
+        nodes {
+        idRol
+        idPermiso
+        idRolPermiso
+        ruleByIdRol {
+            descripcion
+        }
+        permissionByIdPermiso {
+            descripcion
+        }
+        }
+    }
+    }
+`

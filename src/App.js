@@ -7,6 +7,8 @@ import TablaRol from "./componentes/rol/Rol";
 import * as ProyectoHome from "./componentes/proyecto/home";
 import Footer from "./componentes/footer";
 import Permiso from "./componentes/permisos/Permiso"
+import SelectRol from "./componentes/roles_permisos/RolPermiso";
+
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
               element={<Roles/>}/>
             <Route path="/permisos" exact key={"/permisos"} 
               element={<Permisos/>}/>
+            <Route path="/asignar_roles_permisos" exact key={"/asignar_roles_permisos"} 
+              element={<RolesPermisos/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
         </Routes>
@@ -86,6 +90,21 @@ const Permisos = function (){
       <Header/>
       <section id={'hero'} className={'hero'}>
         <Permiso/>  
+      </section>
+      <Footer/>
+    </>
+    </>
+  )
+}
+
+const RolesPermisos = function (){
+
+  return (
+    <>
+    <>
+      <Header/>
+      <section id={'hero'} className={'hero'}>
+        <SelectRol/>  
       </section>
       <Footer/>
     </>
