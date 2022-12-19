@@ -1,7 +1,7 @@
 import React from "react";
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
-import Login from './login'
+import Login from "./login";
 import Header from "./componentes/header";
 import TablaRol from "./componentes/rol/Rol";
 import * as ProyectoHome from "./componentes/proyecto/home";
@@ -9,6 +9,10 @@ import Footer from "./componentes/footer";
 import Permiso from "./componentes/permisos/Permiso"
 import RolPermiso from "./componentes/roles_permisos/RolPermiso";
 import Form from "./componentes/formulario/Formulario";
+import Usuario from "./componentes/usuarios/home";
+import DataTable from "./componentes/usuarios/dataTable";
+import { GestionProyectos } from "./componentes/gestion/home";
+
 
 function App() {
   return (
@@ -29,47 +33,63 @@ function App() {
               element={<Forms/>}/>
             <Route path="/proyectos" exact key={"/proyectos"} 
               element={<Proyectos/>}/>
+            <Route
+                    path="/gestion"
+                    exact
+                    key={"/gestion"}
+                    element={<Gestion />}
+                />
         </Routes>
       </BrowserRouter>
-  );
-}
-
-export default App;
-
-
-
-const Usuarios = function (){
-
-  return (
-    <>
-      <Header/>
-      <section id={'hero'} className={'hero'}>
-        <div className={'container'}>
-          <h1> Usuarios  </h1>
-        </div>   
-      </section>
-      <Footer/>
-    </>
-  ) 
+);
 }
 
 
-const Roles = function (){
 
-  return  (
-    <>
-      <Header/>
-      <section id={'hero'} className={'hero'}>
-        <TablaRol/>  
-        </section>
-      <Footer/>
-    </>
-  )
-}
+const Gestion = function () {
+    return (
+        <>
+            <Header />
+            <section id={"hero"} className={"hero"}>
+                <div className={"container"}>
+                    <GestionProyectos />
+                </div>
+            </section>
+            <Footer />
+        </>
+    );
+};
+
+const Usuarios = function () {
+    return (
+        <>
+            <Header />
+            <section id={"hero"} className={"hero"}>
+                <div className={"container"}>
+                    <Usuario />
+                    {/* <DataTable/> */}
+                </div>
+            </section>
+            <Footer />
+        </>
+    );
+};
+
+const Roles = function () {
+    return (
+        <>
+            <Header />
+            <section id={"hero"} className={"hero"}>
+                <TablaRol />
+            </section>
+            <Footer />
+        </>
+    );
+};
 
 
-const Proyectos = function (){
 
+const Proyectos = function () {
   return (
     <>
       <Header/>
@@ -129,3 +149,5 @@ const Forms = function (){
     </>
   )
 }
+
+export default App;
