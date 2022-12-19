@@ -164,3 +164,27 @@ export const GET_ALL_FORMS = gql`
     }
     }
 `
+
+/**
+ * Backlogs
+ */
+
+export const GET_ALL_BACKLOGS = gql`
+    query Nodes {
+    allBacklogs {
+        nodes {
+        idBacklog
+        idProyecto
+        fechaInicio
+        fechaFin
+        descripcion
+        projectByIdProyecto {
+            idProyecto
+            fechaInicio
+            fechaFin
+            descripcion
+        }
+        }
+    }
+    }
+`

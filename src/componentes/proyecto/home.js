@@ -5,6 +5,7 @@ import DetalleProyecto from "./detalle";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ALL_PROYECTOS } from "../../graphql/querys";
 import { ELIMINAR_PROYECTO } from "../../graphql/mutaciones";
+import Backlog from "../backlog/Backlog"
 
 // Listar los proyectos en una tabla
 // Crear un boton para crear un nuevo proyecto
@@ -127,6 +128,8 @@ function Proyectos(props) {
                     fechaFin={formulario.fechaFin}
                 />
             )}
+            <h2>Backlogs</h2>
+            <Backlog/>
         </>
     );
 }

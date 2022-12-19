@@ -162,13 +162,13 @@ export const ELIMINAR_ROL_PERMISO = gql`
 
 export const CREATE_FORM = gql`
     mutation CreateForm($input: CreateFormInput!) {
-    createForm(input: $input) {
-        form {
-        idFormulario
-        detalle
-        nombre
+        createForm(input: $input) {
+            form {
+            idFormulario
+            detalle
+            nombre
+            }
         }
-    }
     }
 `
 
@@ -184,6 +184,36 @@ export const EDITAR_FORM = gql`
     mutation UpdateFormByIdFormulario($input: UpdateFormByIdFormularioInput!) {
     updateFormByIdFormulario(input: $input) {
         clientMutationId  
+    }
+    }
+`
+
+/**
+ * Backlogs
+ */
+
+export const CREAR_BACKLOG = gql`
+    mutation CreateBacklog($input: CreateBacklogInput!) {
+    createBacklog(input: $input) {
+        backlog {
+        descripcion
+        }
+    }
+    }
+`
+
+export const DELETE_BACKLOG = gql`
+    mutation DeleteBacklogByIdBacklog($input: DeleteBacklogByIdBacklogInput!) {
+    deleteBacklogByIdBacklog(input: $input) {
+        deletedBacklogId
+    }
+    }
+`
+
+export const EDITAR_BACKLOG = gql`
+    mutation UpdateBacklogByIdBacklog($input: UpdateBacklogByIdBacklogInput!) {
+    updateBacklogByIdBacklog(input: $input) {
+        clientMutationId
     }
     }
 `
