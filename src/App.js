@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from './login'
 import Header from "./componentes/header";
-
+import * as ProyectoHome from "./componentes/proyecto/home";
 
 
 
@@ -61,10 +61,8 @@ const Proyectos = function (){
 
   return (
     <>
-      <Header/>
-      <section id={'hero'} className={'hero d-flex align-items-center'}></section>
         <div className={'container'}>
-          <h1> Proyectos  </h1>
+          <ProyectoHome.default/>
         </div>   
     </>
   )
