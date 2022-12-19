@@ -72,9 +72,9 @@ export const GET_ALL_USERS = gql`
     query Nodes {
     allUsers {
         nodes {
-        name
-        password
-        idUser
+            name
+            password
+            idUser
         }
     }
 }

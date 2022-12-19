@@ -6,6 +6,8 @@ import Header from "./componentes/header";
 import TablaRol from "./componentes/rol/Rol";
 import * as ProyectoHome from "./componentes/proyecto/home";
 import Footer from "./componentes/footer";
+import Usuario from "./componentes/usuarios/home"
+import DataTable from "./componentes/usuarios/dataTable"
 
 
 function App() {
@@ -37,7 +39,8 @@ const Usuarios = function (){
       <Header/>
       <section id={'hero'} className={'hero'}>
         <div className={'container'}>
-          <h1> Usuarios  </h1>
+          <Usuario/>
+          {/* <DataTable/> */}
         </div>   
       </section>
       <Footer/>
