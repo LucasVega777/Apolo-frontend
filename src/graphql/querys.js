@@ -47,37 +47,37 @@ export const GET_ROL_BY_ID = gql`
 
 export const GET_ALL_ROLES = gql`
     query Nodes {
-    allRules {
-        nodes {
-        idRol
-        descripcion
+        allRules {
+            nodes {
+                idRol
+                descripcion
+            }
         }
-    }
     }
 `;
 
 export const GET_USER_BY_CREDENTIALS = gql`
     query AllUsers($condition: UserCondition) {
-    allUsers(condition: $condition) {
-        nodes {
-            name
-            password
-            idUser
+        allUsers(condition: $condition) {
+            nodes {
+                name
+                password
+                idUser
+            }
         }
     }
-}
 `;
 
 export const GET_ALL_USERS = gql`
     query Nodes {
-    allUsers {
-        nodes {
-            name
-            password
-            idUser
+        allUsers {
+            nodes {
+                name
+                password
+                idUser
+            }
         }
     }
-}
 `;
 
 export const GET_PROYECTO_DETALLE = gql`
