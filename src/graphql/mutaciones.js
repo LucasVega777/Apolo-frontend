@@ -155,3 +155,35 @@ export const ELIMINAR_ROL_PERMISO = gql`
     }
     }
 `
+
+/**
+ * Formulario
+*/
+
+export const CREATE_FORM = gql`
+    mutation CreateForm($input: CreateFormInput!) {
+    createForm(input: $input) {
+        form {
+        idFormulario
+        detalle
+        nombre
+        }
+    }
+    }
+`
+
+export const ELIMINAR_FORMULARIO = gql`
+    mutation DeleteFormByIdFormulario($input: DeleteFormByIdFormularioInput!) {
+        deleteFormByIdFormulario(input: $input) {
+            deletedFormularioId  
+        }
+    }
+`
+
+export const EDITAR_FORM = gql`
+    mutation UpdateFormByIdFormulario($input: UpdateFormByIdFormularioInput!) {
+    updateFormByIdFormulario(input: $input) {
+        clientMutationId  
+    }
+    }
+`

@@ -148,3 +148,19 @@ export const GET_ROLES_PERMISOS = gql`
     }
     }
 `
+
+/**
+ * Listado de formularios
+ */
+
+export const GET_ALL_FORMS = gql`
+    query Formulario {
+    allForms {
+        nodes {
+        idFormulario
+        detalle
+        nombre
+        }
+    }
+    }
+`
