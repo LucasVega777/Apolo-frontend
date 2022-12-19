@@ -13,8 +13,6 @@ import { useNavigate } from 'react-router-dom';
 import Permiso from "./componentes/permisos/Permiso"
 import RolPermiso from "./componentes/roles_permisos/RolPermiso";
 import Form from "./componentes/formulario/Formulario";
-import Usuario from "./componentes/usuarios/home";
-import DataTable from "./componentes/usuarios/dataTable";
 import { GestionProyectos } from "./componentes/gestion/home";
 
 
