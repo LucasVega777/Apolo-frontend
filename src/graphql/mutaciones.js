@@ -294,4 +294,3 @@ export const UPDATE_SPRINT = gql`
         }
     }
 `
-`;
