@@ -1,16 +1,16 @@
-import { GET_ALL_ROLES } from "../../graphql/querys";
+import { GET_ALL_PERMISOSS } from "../../graphql/querys";
 import { useMutation, useQuery } from '@apollo/client';
-import { ELIMINAR_ROL } from "../../graphql/mutaciones";
+import { ELIMINAR_PERMISO } from "../../graphql/mutaciones";
 import { Link } from 'react-router-dom';
 import { useMemo, useState, useEffect } from "react";
 import { useTable } from "react-table";
 import Tabla from "./Tabla";
-import RolForm from "./RolForm";
+import PermisoForm from "./PermisoForm";
 
-export default function TablaRol() {
+export default function TablaPermiso() {
 
-    const { data, loading, error } = useQuery(GET_ALL_ROLES)
-    const [deleteRol] = useMutation(ELIMINAR_ROL);
+    const { data, loading, error } = useQuery(GET_ALL_PERMISOSS)
+    const [deletePermiso] = useMutation(ELIMINAR_PERMISO);
     const [formulario, setFormulario] = useState({
         mode: "create",
     });
@@ -18,7 +18,7 @@ export default function TablaRol() {
     const [columnas, setColumnas] = useState( [
         {
             Header: "Identificador",
-            accessor: "idRol",
+            accessor: "idPermiso",
             Cell: ({ value }) => <strong>{value}</strong>
         },
         {
@@ -28,10 +28,10 @@ export default function TablaRol() {
         }
     ])
 
-    const [roles, setRoles] = useState([])
+    const [permisos, setPermisos] = useState([])
 
-    if (data?.allRules?.nodes && roles.length === 0) {
-        setRoles(data.allRules.nodes);
+    if (data?.allPermissions?.nodes && permisos.length === 0) {
+        setPermisos(data.allPermissions.nodes);
     }
     
     
@@ -42,50 +42,50 @@ export default function TablaRol() {
      * Metodo para manejar la edicion de un proyecto
      * @param {*} idProyecto
      */
-    const handleEdit = (datosRol) => {
-        console.log( "Datos: ", datosRol);
+    const handleEdit = (datosPermisos) => {
+        console.log( "Datos: ", datosPermisos);
         setFormulario({
             mode: "edit",
-            idRol: datosRol.idRol,
-            descripcion: datosRol.descripcion
+            idPermiso: datosPermisos.idPermiso,
+            descripcion: datosPermisos.descripcion
         });
     };
 
 
     /**
-     * Metodo para eliminar un proyecto de la tabla
-     * @param {*} idRol
+     * Metodo para eliminar un permiso de la tabla
+     * @param {*} idPermiso
     */
-    const handleDelete = (idRol) => {
+    const handleDelete = (idPermiso) => {
         // Eliminar el proyecto del state
-        console.log(idRol);
-        const newRoles = roles.filter(
-            (rol) => rol.idRol !== idRol
+        console.log(idPermiso);
+        const newPermisos = permisos.filter(
+            (permiso) => permiso.idPermiso !== idPermiso
         );
         // Eliminar el proyecto de la base de datos
-        deleteRol({
+        deletePermiso({
             variables: {
                 input: {
-                    idRol: idRol,
+                    idPermiso: idPermiso,
                 },
             },
         });
 
-        setRoles(newRoles);
+        setPermisos(newPermisos);
     };
 
     if(data) {
         return (
             <>
-                <h4>Listado de roles</h4>
-                <Tabla columnas={columnas} data={roles} onEdit={handleEdit} onDelete={handleDelete}/>
-                <h4>Crear/Editar Rol</h4>
+                <h4>Listado de permisos</h4>
+                <Tabla columnas={columnas} data={permisos} onEdit={handleEdit} onDelete={handleDelete}/>
+                <h4>Crear/Editar Permiso</h4>
                 {
                     formulario.mode === "create" ?
-                        (<RolForm mode={formulario.mode}/>)
+                        (<PermisoForm mode={formulario.mode}/>)
                     : (
-                        <RolForm mode={formulario.mode}
-                            idRol={formulario.idRol}
+                        <PermisoForm mode={formulario.mode}
+                            idPermiso={formulario.idPermiso}
                             descripcion={formulario.descripcion}
                         />
                     )
