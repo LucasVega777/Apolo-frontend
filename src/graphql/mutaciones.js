@@ -91,8 +91,10 @@ export const CREAR_PROYECTO = gql`
 `;
 
 export const EDITAR_PROYECTO = gql`
-    mutation UpdateProjectByIdProyecto($input: UpdateProjectInput!) {
-        updateProject(input: $input) {
+    mutation UpdateProjectByIdProyecto(
+        $input: UpdateProjectByIdProyectoInput!
+    ) {
+        updateProjectByIdProyecto(input: $input) {
             project {
                 idProyecto
             }

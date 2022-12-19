@@ -65,3 +65,49 @@ export const GET_USER_BY_CREDENTIALS = gql`
         }
     }
 `;
+
+export const GET_PROYECTO_DETALLE = gql`
+    query ProjectByIdProyecto($idProyecto: Int!) {
+        projectByIdProyecto(idProyecto: $idProyecto) {
+            fechaInicio
+            fechaFin
+            descripcion
+            idProyecto
+            backlogsByIdProyecto {
+                totalCount
+                nodes {
+                    descripcion
+                    fechaFin
+                    fechaInicio
+                    sprintsByIdBacklog {
+                        nodes {
+                            estado
+                            fechaInicio
+                            fechaFin
+                            descripcion
+                        }
+                    }
+                    usersStoriesByIdBacklog {
+                        totalCount
+                        nodes {
+                            fechaInsercion
+                            estimacion
+                            descripcion
+                            titulo
+                        }
+                    }
+                }
+            }
+            usersProjectsByIdProyecto {
+                totalCount
+                nodes {
+                    userByIdUser {
+                        name
+                        idUser
+                        password
+                    }
+                }
+            }
+        }
+    }
+`;
