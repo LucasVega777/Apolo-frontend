@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/apolo-frontend/static/css/main.d5e10576.css",
-    "main.js": "/apolo-frontend/static/js/main.cf5a76f9.js",
+    "main.js": "/apolo-frontend/static/js/main.8309ffee.js",
     "static/js/787.23e665c9.chunk.js": "/apolo-frontend/static/js/787.23e665c9.chunk.js",
     "static/media/usuario.png": "/apolo-frontend/static/media/usuario.bc259b070ed4954dbb17.png",
     "index.html": "/apolo-frontend/index.html",
     "main.d5e10576.css.map": "/apolo-frontend/static/css/main.d5e10576.css.map",
-    "main.cf5a76f9.js.map": "/apolo-frontend/static/js/main.cf5a76f9.js.map",
+    "main.8309ffee.js.map": "/apolo-frontend/static/js/main.8309ffee.js.map",
     "787.23e665c9.chunk.js.map": "/apolo-frontend/static/js/787.23e665c9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5e10576.css",
-    "static/js/main.cf5a76f9.js"
+    "static/js/main.8309ffee.js"
   ]
 }
