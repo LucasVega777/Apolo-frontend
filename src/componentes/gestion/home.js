@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_PROYECTOS } from "../../graphql/querys";
 import { DetalleProyecto } from "../gestion/detalle";
+import { UserStoryForm } from "./userStories";
 
 export const GestionProyectos = () => {
     const [idProyecto, setIdProyecto] = useState(1);
@@ -20,15 +21,27 @@ export const GestionProyectos = () => {
 
     // render the details of the project
     return (
-        <div>
-            <h1>Gestion de proyectos</h1>
-            <select
-                value={idProyecto}
-                onChange={(e) => setIdProyecto(+e.target.value)}
-            >
-                {proyectos}
-            </select>
-            <DetalleProyecto idProyecto={idProyecto} />
-        </div>
+        <>
+            <div>
+                <h1>Gestion de proyectos</h1>
+                <select
+                    value={idProyecto}
+                    onChange={(e) => setIdProyecto(+e.target.value)}
+                >
+                    {proyectos}
+                </select>
+                <DetalleProyecto idProyecto={idProyecto} />
+            </div>
+            <div>
+                <h2>Gestion de US</h2>
+                <select
+                    value={idProyecto}
+                    onChange={(e) => setIdProyecto(+e.target.value)}
+                >
+                    {proyectos}
+                </select>
+                <UserStoryForm idProyecto={idProyecto} />
+            </div>
+        </>
     );
 };
