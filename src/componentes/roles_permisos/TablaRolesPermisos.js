@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
-import RolForm from "./RolForm";
 
 export default function Tabla({columnas, data, onEdit, onDelete}) {
 
@@ -10,7 +9,15 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
         () => columnas, []
     )
 
-    const tableInstance = useTable({columns, data})
+    const dataFinal = data.map(d => {
+        return {
+            idRolPermiso: d.idRolPermiso,
+            rol: d.ruleByIdRol.descripcion,
+            permiso: d.permissionByIdPermiso.descripcion
+        }
+    })
+
+    const tableInstance = useTable({columns, data: dataFinal})
 
     const {
         getTableProps,
@@ -65,7 +72,7 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
                                     <td></td><td></td><td></td>
                                     <td>
                                         <button
-                                            onClick={() => onDelete(row.values.idRol)}
+                                            onClick={() => onDelete(row.values.idRolPermiso)}
                                             className={'btn btn-primary'} 
                                         >
                                             Eliminar

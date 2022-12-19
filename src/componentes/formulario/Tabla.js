@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
-import RolForm from "./RolForm";
 
 export default function Tabla({columnas, data, onEdit, onDelete}) {
 
@@ -65,7 +64,7 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
                                     <td></td><td></td><td></td>
                                     <td>
                                         <button
-                                            onClick={() => onDelete(row.values.idRol)}
+                                            onClick={() => onDelete(row.values.idFormulario)}
                                             className={'btn btn-primary'} 
                                         >
                                             Eliminar
@@ -77,7 +76,6 @@ export default function Tabla({columnas, data, onEdit, onDelete}) {
                         })
                     }
                 </tbody>
-
             </table>
         </>
     )

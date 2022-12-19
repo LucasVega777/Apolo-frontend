@@ -47,37 +47,37 @@ export const GET_ROL_BY_ID = gql`
 
 export const GET_ALL_ROLES = gql`
     query Nodes {
-    allRules {
-        nodes {
-        idRol
-        descripcion
+        allRules {
+            nodes {
+                idRol
+                descripcion
+            }
         }
-    }
     }
 `;
 
 export const GET_USER_BY_CREDENTIALS = gql`
     query AllUsers($condition: UserCondition) {
-    allUsers(condition: $condition) {
-        nodes {
-            name
-            password
-            idUser
+        allUsers(condition: $condition) {
+            nodes {
+                name
+                password
+                idUser
+            }
         }
     }
-}
 `;
 
 export const GET_ALL_USERS = gql`
     query Nodes {
-    allUsers {
-        nodes {
-            name
-            password
-            idUser
+        allUsers {
+            nodes {
+                name
+                password
+                idUser
+            }
         }
     }
-}
 `;
 
 export const GET_PROYECTO_DETALLE = gql`
@@ -125,3 +125,66 @@ export const GET_PROYECTO_DETALLE = gql`
         }
     }
 `;
+
+
+/**
+ * Listado de roles con los permisos asignados.
+*/
+
+export const GET_ROLES_PERMISOS = gql`
+    query Nodes {
+    allRulesPermissions {
+        nodes {
+        idRol
+        idPermiso
+        idRolPermiso
+        ruleByIdRol {
+            descripcion
+        }
+        permissionByIdPermiso {
+            descripcion
+        }
+        }
+    }
+    }
+`
+
+/**
+ * Listado de formularios
+ */
+
+export const GET_ALL_FORMS = gql`
+    query Formulario {
+    allForms {
+        nodes {
+        idFormulario
+        detalle
+        nombre
+        }
+    }
+    }
+`
+
+/**
+ * Backlogs
+ */
+
+export const GET_ALL_BACKLOGS = gql`
+    query Nodes {
+    allBacklogs {
+        nodes {
+        idBacklog
+        idProyecto
+        fechaInicio
+        fechaFin
+        descripcion
+        projectByIdProyecto {
+            idProyecto
+            fechaInicio
+            fechaFin
+            descripcion
+        }
+        }
+    }
+    }
+`
