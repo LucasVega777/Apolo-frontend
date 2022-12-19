@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../graphql/mutaciones";
 import swal from 'sweetalert';
-import { async } from "q";
 
 
 export default function FRMusuario() {
@@ -72,6 +71,9 @@ export default function FRMusuario() {
                     }
                 }
             })
+            
+            
+
             await swal({
                 title: "Exito!",
                 text: "Has creado el usuario correctamente",
