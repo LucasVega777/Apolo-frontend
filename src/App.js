@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from './login'
 import Header from "./componentes/header";
-import TablaRol from "./componentes/Rol";
+import TablaRol from "./componentes/rol/Rol";
 import * as ProyectoHome from "./componentes/proyecto/home";
 import Footer from "./componentes/footer";
 

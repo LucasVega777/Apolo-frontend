@@ -1,4 +1,4 @@
-import { GET_ALL_ROLES } from "../graphql/querys";
+import { GET_ALL_ROLES } from "../../graphql/querys";
 import { useMutation, useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { useMemo, useState, useEffect } from "react";
